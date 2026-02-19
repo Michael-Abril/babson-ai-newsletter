@@ -1,0 +1,26 @@
+{
+  "name": "the-ai-pulse",
+  "version": "1.0.0",
+  "description": "The AI Pulse — Babson College's automated weekly AI newsletter for entrepreneurs",
+  "type": "module",
+  "scripts": {
+    "preview": "MODE=preview tsx src/index.ts",
+    "test-send": "MODE=test tsx src/index.ts",
+    "send": "MODE=send tsx src/index.ts",
+    "build": "tsc --noEmit"
+  },
+  "keywords": ["ai", "newsletter", "babson", "entrepreneurship"],
+  "license": "MIT",
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.39.0",
+    "resend": "^4.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.7.0"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}

@@ -1,0 +1,58 @@
+name: The AI Pulse — Weekly Newsletter
+
+on:
+  schedule:
+    - cron: '0 18 * * 0'  # Sunday 6PM UTC = 2PM EST
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'Run mode'
+        required: true
+        default: 'preview'
+        type: choice
+        options:
+          - preview
+          - test
+          - send
+
+jobs:
+  newsletter:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - run: npm ci
+
+      - name: Generate and deliver newsletter
+        env:
+          MODE: ${{ github.event.inputs.mode || 'send' }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          FROM_EMAIL: ${{ secrets.FROM_EMAIL }}
+          TEST_EMAIL: ${{ secrets.TEST_EMAIL }}
+          STUDENT_EMAILS: ${{ secrets.STUDENT_EMAILS }}
+        run: npx tsx src/index.ts
+
+      - name: Upload preview artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: newsletter-preview
+          path: output/
+          if-no-files-found: ignore
+
+      - name: Archive newsletter
+        if: github.event.inputs.mode == 'send' || github.event_name == 'schedule'
+        run: |
+          mkdir -p archive
+          cp output/*.html archive/ 2>/dev/null || true
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git add archive/
+          git diff --staged --quiet || git commit -m "Archive newsletter $(date +%Y-%m-%d)"
+          git push
