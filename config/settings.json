@@ -1,0 +1,33 @@
+{
+  "newsletter": {
+    "name": "The AI Pulse",
+    "subtitle": "AI for Entrepreneurs — Babson College",
+    "tagline": "Built by Babson students for Babson students.",
+    "disclaimer": "Researched with AI. Curated by humans."
+  },
+  "schedule": {
+    "dayOfWeek": "Sunday",
+    "timeEST": "2:00 PM",
+    "cronUTC": "0 18 * * 0"
+  },
+  "email": {
+    "subjectPrefix": "The AI Pulse —",
+    "maxHTMLSizeKB": 102,
+    "maxWidthPx": 600
+  },
+  "brand": {
+    "babsonGreen": "#006644",
+    "courtyardGreen": "#597C31",
+    "sherwoodGreen": "#9EB28F",
+    "alfrescoBlue": "#567B8A",
+    "brightGold": "#DDD055",
+    "mangoPunch": "#EEAF00",
+    "ocre": "#AD9001",
+    "white": "#FFFFFF",
+    "offWhite": "#F5F5F0",
+    "darkCharcoal": "#2D2D2D",
+    "mediumGray": "#6B7280",
+    "lightBorder": "#E5E5E0",
+    "warmGoldBg": "#FFF8E7"
+  }
+}

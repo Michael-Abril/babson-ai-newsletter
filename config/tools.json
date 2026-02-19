@@ -1,0 +1,74 @@
+[
+  {
+    "name": "Cursor Pro",
+    "value": "$240/year",
+    "duration": "1 year free",
+    "description": "AI-powered code editor. Describe what you want in plain English and it writes the code. Reads your entire project, debugs errors, generates features. This is what vibe coding runs on — students at Stanford, MIT, and Harvard use it to build startups without traditional dev teams.",
+    "claimSteps": "Download from cursor.com → Sign up with your @babson.edu email → Settings → Subscription → Student Plan → Verify → Instant activation.",
+    "url": "https://cursor.com/students",
+    "category": "coding"
+  },
+  {
+    "name": "Google Gemini AI Pro",
+    "value": "$240/year",
+    "duration": "1 year free",
+    "description": "Google's most advanced AI plus 2TB Google Drive storage. Advanced reasoning, code generation, real-time web browsing, and deep integration with the Google ecosystem. Sign up by April 30, 2026.",
+    "claimSteps": "Go to gemini.google/students → Verify student status through SheerID with your personal Gmail → Subscribe through Google Play Store → Instant access.",
+    "url": "https://gemini.google/students/",
+    "category": "general AI"
+  },
+  {
+    "name": "Perplexity Pro",
+    "value": "$200/year",
+    "duration": "1 year free",
+    "description": "AI-powered research engine that replaces hours of Googling. Direct answers with real citations from trusted sources. Multi-model access including GPT and Claude. No credit card required.",
+    "claimSteps": "Go to perplexity.ai → Click Upgrade → Select 'Educate' plan → Sign in with your .edu email → Verify → No credit card required.",
+    "url": "https://perplexity.ai",
+    "category": "research"
+  },
+  {
+    "name": "GitHub Copilot",
+    "value": "$100/year",
+    "duration": "Free while enrolled",
+    "description": "AI pair programmer that suggests code as you type. Works inside VS Code, JetBrains, and other editors. Also unlocks dozens of other free developer tools through the Student Developer Pack.",
+    "claimSteps": "Go to education.github.com/pack → Click 'Get your Pack' → Sign in with GitHub → Select Student → Upload proof of enrollment → Instant access.",
+    "url": "https://education.github.com/pack",
+    "category": "coding"
+  },
+  {
+    "name": "ChatGPT Plus",
+    "value": "$200/year",
+    "duration": "Free months + 20% ongoing discount",
+    "description": "OpenAI's premium tier with full GPT access, faster responses, image generation, advanced data analysis, and file uploads. The 20% student discount continues after the free trial.",
+    "claimSteps": "Go to chatgpt.com/students → Sign up with your .edu email → Verify through SheerID → Free months activate automatically.",
+    "url": "https://chatgpt.com/students",
+    "category": "general AI"
+  },
+  {
+    "name": "NotebookLM",
+    "value": "Free for everyone",
+    "duration": "Always free",
+    "description": "Upload your lecture notes, PDFs, and YouTube transcripts. AI becomes an expert on YOUR materials. Creates study guides, podcast-style audio summaries, and practice quizzes from your actual class content.",
+    "claimSteps": "Go to notebooklm.google.com → Sign in with any Google account → Upload your materials → Start asking questions.",
+    "url": "https://notebooklm.google.com",
+    "category": "studying"
+  },
+  {
+    "name": "Microsoft 365 Education + Copilot",
+    "value": "$100/year",
+    "duration": "Free while enrolled",
+    "description": "Full Microsoft Office suite plus Copilot AI features in Word, Excel, PowerPoint, and Outlook. AI-powered writing assistance, data analysis, and presentation generation.",
+    "claimSteps": "Check if Babson provides this through your school account. If not, go to microsoft.com/education → Verify with your .edu email.",
+    "url": "https://www.microsoft.com/en-us/education",
+    "category": "productivity"
+  },
+  {
+    "name": "Canva for Education",
+    "value": "$130/year",
+    "duration": "Free while enrolled",
+    "description": "Full Canva Pro with Magic Studio AI. Turn bullet points into full presentation decks in seconds. AI image generation, background removal, and brand kit management.",
+    "claimSteps": "Go to canva.com/education → Verify your student status → Full Pro access activated.",
+    "url": "https://www.canva.com/education/",
+    "category": "design"
+  }
+]
