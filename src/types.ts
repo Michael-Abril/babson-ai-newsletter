@@ -20,25 +20,31 @@ export interface FrameworkStep {
   description: string;
 }
 
+export interface BusinessWorkflow {
+  title: string;
+  description: string;
+}
+
 export interface NewsletterContent {
   subjectLine: string;
+  weekTopic: string;
   bigStory: {
     headline: string;
     summary: string;
-    founderAngle: string;
     sourceUrl: string;
   };
+  classConnection: string;
   threeThings: NewsItem[];
-  tutorial: {
-    title: string;
-    intro: string;
-    steps: string[];
-  };
   founderFramework: {
     title: string;
     intro: string;
     steps: FrameworkStep[];
     bottomLine: string;
   };
+  aiInBusiness: {
+    title: string;
+    workflows: BusinessWorkflow[];
+  };
   quickHits: string[];
+  nextWeek: string;
 }

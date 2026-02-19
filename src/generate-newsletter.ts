@@ -22,12 +22,13 @@ After researching, return a single JSON object (no markdown fencing, just raw JS
 
 {
   "subjectLine": "short compelling hook under 50 chars",
+  "weekTopic": "a 3-6 word theme for this week's AI landscape (e.g. 'The Generative AI Revolution')",
   "bigStory": {
     "headline": "main AI story headline",
     "summary": "2-3 sentence summary of what happened",
-    "founderAngle": "2-3 sentences on why Babson entrepreneurs should care — be specific and actionable",
     "sourceUrl": "real URL to the source article"
   },
+  "classConnection": "2-4 sentences connecting this week's big AI story to entrepreneurship and what Babson students are learning — think competitive strategy, business models, market timing, disruption patterns",
   "threeThings": [
     {
       "headline": "story headline",
@@ -38,36 +39,40 @@ After researching, return a single JSON object (no markdown fencing, just raw JS
     { "headline": "...", "summary": "...", "takeaway": "...", "sourceUrl": "..." },
     { "headline": "...", "summary": "...", "takeaway": "...", "sourceUrl": "..." }
   ],
-  "tutorial": {
-    "title": "actionable tutorial title (e.g. 'Validate Your Startup Idea in 10 Minutes with AI')",
-    "intro": "1-2 sentences framing why this matters for entrepreneurs",
-    "steps": ["step 1 with specific instructions", "step 2...", "step 3...", "step 4 (optional)", "step 5 (optional)"]
-  },
   "founderFramework": {
-    "title": "framework title (e.g. 'The AI-Powered Customer Discovery Sprint')",
-    "intro": "1-2 sentences introducing the framework",
+    "title": "actionable framework title (e.g. 'Validate your business idea this weekend using AI')",
+    "intro": "1-2 sentences framing why this matters — be direct",
     "steps": [
-      { "title": "step name", "description": "2-3 sentences with specific how-to" },
+      { "title": "step name", "description": "2-3 sentences with specific how-to using AI tools" },
       { "title": "step name", "description": "..." },
       { "title": "step name", "description": "..." }
     ],
-    "bottomLine": "one sentence quantifying the cost/time savings"
+    "bottomLine": "one sentence quantifying the cost/time savings (e.g. 'Total cost: ~$70. Total time: one weekend. Traditional approach: 6-8 weeks and $5,000+')"
+  },
+  "aiInBusiness": {
+    "title": "a title for 3 practical AI workflows (e.g. '3 AI workflows every Babson founder should be running')",
+    "workflows": [
+      { "title": "workflow name", "description": "2-3 sentences explaining exactly how to do this with specific AI tools" },
+      { "title": "workflow name", "description": "..." },
+      { "title": "workflow name", "description": "..." }
+    ]
   },
   "quickHits": [
     "Company/Product — one line news item",
     "Company/Product — one line news item",
     "Company/Product — one line news item",
     "Company/Product — one line news item"
-  ]
+  ],
+  "nextWeek": "1-2 sentences teasing what's coming in next week's newsletter — what AI trends to watch"
 }
 
 RULES:
 - Every URL must be real (from your web search results)
 - Write in a smart, direct, conversational tone — like a sharp friend, not a professor
-- Frame everything through an entrepreneurship lens
-- Tutorial steps must be copy-paste actionable
+- Frame everything through an entrepreneurship and startup lens
 - No filler phrases like "In today's rapidly evolving landscape"
 - No generic advice — be specific and practical
+- The founderFramework and aiInBusiness sections should give students things they can actually DO this week
 - Return ONLY the JSON object, nothing else`,
       },
     ],
