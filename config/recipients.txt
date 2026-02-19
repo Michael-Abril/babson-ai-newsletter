@@ -1,0 +1,3 @@
+# Babson AI Pulse - Class recipients
+# Add one email per line
+# Lines starting with # are comments

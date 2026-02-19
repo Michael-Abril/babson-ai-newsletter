@@ -1,7 +1,22 @@
-import { writeFileSync, mkdirSync } from "fs";
+import { writeFileSync, readFileSync, mkdirSync, existsSync } from "fs";
 import { generateNewsletter } from "./generate-newsletter.js";
 import { buildEmail } from "./build-email.js";
 import { sendNewsletter } from "./send-email.js";
+
+function loadRecipients(): string[] {
+  const filePath = "config/recipients.txt";
+  if (existsSync(filePath)) {
+    const lines = readFileSync(filePath, "utf-8")
+      .split("\n")
+      .map((l) => l.trim())
+      .filter((l) => l && !l.startsWith("#"));
+    if (lines.length > 0) return lines;
+  }
+  // Fall back to env var
+  const envEmails = process.env.STUDENT_EMAILS;
+  if (envEmails) return JSON.parse(envEmails) as string[];
+  return [];
+}
 
 const mode = process.env.MODE || "preview";
 
@@ -34,8 +49,8 @@ async function main() {
       break;
     }
     case "send": {
-      const emails = JSON.parse(process.env.STUDENT_EMAILS || "[]") as string[];
-      if (emails.length === 0) throw new Error("STUDENT_EMAILS is empty");
+      const emails = loadRecipients();
+      if (emails.length === 0) throw new Error("No recipients found in config/recipients.txt or STUDENT_EMAILS");
       await sendNewsletter(html, subject, emails);
       console.log(`Sent to ${emails.length} students.`);
       break;
