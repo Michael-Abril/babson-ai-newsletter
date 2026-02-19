@@ -3,9 +3,6 @@ name: The AI Pulse — Weekly Newsletter
 on:
   schedule:
     - cron: '0 18 * * 0'  # Sunday 6PM UTC = 2PM EST
-  push:
-    branches:
-      - 'claude/**'
   workflow_dispatch:
     inputs:
       mode:

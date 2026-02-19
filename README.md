@@ -1,85 +1,116 @@
 # The AI Pulse
 
-Automated weekly AI newsletter for Babson College students. Searches for the latest AI news, frames it through an entrepreneurship lens, and delivers it via email every Sunday.
+**A weekly AI newsletter for Babson College students, built by Babson students.**
+
+The AI Pulse delivers curated AI news, free student tools, and actionable entrepreneurship frameworks to Babson students every Sunday afternoon. Every story is framed through the lens of what founders and future business leaders should actually do about it.
+
+---
+
+## What Each Issue Includes
+
+| Section | What It Covers |
+|---|---|
+| **The Big Story** | Deep dive into the week's most important AI development, with a direct connection to Babson coursework |
+| **This Week in AI** | Three quick news items, each with a specific takeaway for entrepreneurs |
+| **Founder's Edge** | A step-by-step AI-powered framework students can apply to their ventures immediately |
+| **Free Student Tools** | Rotating spotlight on free AI tools available with a .edu email |
+| **AI in Your Business** | Practical AI workflows for real student ventures |
+| **Quick Hits** | Rapid-fire industry updates to stay current |
 
 ## How It Works
 
-1. AI searches the web for this week's top AI news
-2. Content is assembled into a Babson-branded HTML email
-3. **Resend** delivers it to the student email list
-4. **GitHub Actions** runs this automatically every Sunday at 2PM EST
+1. **Research** — AI searches the web for the week's most relevant AI developments
+2. **Write** — Content is generated with a Babson entrepreneurship focus, connecting every story to what founders should do about it
+3. **Design** — Content is assembled into a clean, branded HTML email
+4. **Deliver** — The newsletter is sent to the student email list automatically
 
-## Quick Setup
+The entire pipeline runs every **Sunday at 2:00 PM EST** via GitHub Actions. No manual work is needed once configured. Issues can also be triggered on-demand from the Actions tab for previewing or testing.
+
+## Free Student AI Tools
+
+Each issue highlights free AI tools that Babson students can claim with their .edu email. The current database includes:
+
+- **Cursor Pro** — AI code editor ($240/year value)
+- **Google Gemini Pro** — Advanced AI + 2TB storage ($240/year value)
+- **Perplexity Pro** — AI research engine ($200/year value)
+- **GitHub Copilot** — AI pair programmer ($100/year value)
+- **ChatGPT Plus** — GPT-4 access ($200/year value)
+- **NotebookLM** — Google's AI research notebook (free)
+- **Microsoft 365 Copilot** — AI across Office apps (free with .edu)
+- **Canva Pro** — AI design tools (free with .edu)
+
+A different tool is featured each week on a rotating basis.
+
+## Security and Privacy
+
+- All API keys and credentials are stored as encrypted GitHub Secrets — never in the codebase
+- The student email list is managed through secure environment variables
+- No student data is committed to the repository
+- The repository should be set to **private** before adding any student email addresses
+
+## Technology
+
+| Component | Purpose |
+|---|---|
+| Anthropic Claude API | Content generation with real-time web search |
+| Resend | Email delivery with unsubscribe compliance |
+| GitHub Actions | Weekly automation on a cron schedule |
+| TypeScript / Node.js | Application language and runtime |
+
+---
+
+<details>
+<summary><strong>Developer Setup</strong></summary>
+
+### Prerequisites
+
+- Node.js 20+
+- [Anthropic API key](https://console.anthropic.com/)
+- [Resend API key](https://resend.com/)
+
+### Install and Configure
 
 ```bash
-# Install dependencies
 npm install
-
-# Copy and configure environment variables
 cp .env.example .env
 # Edit .env with your API keys
 ```
 
-### Required API Keys
-
-| Variable | Where to get it |
-|---|---|
-| `ANTHROPIC_API_KEY` | [console.anthropic.com](https://console.anthropic.com/) |
-| `RESEND_API_KEY` | [resend.com](https://resend.com/) |
-
 ### Run Modes
 
 ```bash
-# Preview — generates HTML, saves to output/ folder
-npm run preview
-
-# Test — sends to your TEST_EMAIL only
-npm run test-send
-
-# Send — sends to all students in config/recipients.txt
-npm run send
+npm run preview      # Generate HTML preview (no email sent)
+npm run test-send    # Send to TEST_EMAIL only
+npm run send         # Send to all recipients
 ```
 
-## Managing the Email List
+### GitHub Actions Secrets
 
-Add student emails to `config/recipients.txt` — one per line:
+Add these in Settings > Secrets and variables > Actions:
 
-```
-student1@babson.edu
-student2@babson.edu
-student3@babson.edu
-```
+| Secret | Description |
+|---|---|
+| `ANTHROPIC_API_KEY` | Claude API key |
+| `RESEND_API_KEY` | Resend email API key |
+| `FROM_EMAIL` | Sender address (verified in Resend) |
+| `TEST_EMAIL` | Recipient for test sends |
 
-Lines starting with `#` are comments. Make the repo **private** before adding student emails.
-
-## GitHub Actions (Automated)
-
-The newsletter runs automatically every Sunday at 2PM EST via GitHub Actions.
-
-Add these as **repository secrets** (Settings → Secrets):
-- `ANTHROPIC_API_KEY`
-- `RESEND_API_KEY`
-- `FROM_EMAIL`
-- `TEST_EMAIL`
-
-You can also trigger manually from the Actions tab with a mode selector.
-
-## Project Structure
+### Project Structure
 
 ```
-├── src/
-│   ├── index.ts                 # Entry point (preview/test/send modes)
-│   ├── generate-newsletter.ts   # AI-powered content generation + web search
-│   ├── build-email.ts           # Assembles content into HTML
-│   ├── send-email.ts            # Resend delivery
-│   ├── template.ts              # Babson-branded HTML template
-│   └── types.ts                 # TypeScript interfaces
-├── config/
-│   ├── tools.json               # Free student AI tools database
-│   ├── recipients.txt           # Student email list
-│   └── settings.json            # Newsletter settings + brand colors
-├── .github/workflows/
-│   └── newsletter.yml           # Sunday cron + manual trigger
-├── archive/                     # Past issues (auto-committed)
-└── output/                      # Preview HTML (gitignored)
+src/
+  index.ts                 Entry point (preview/test/send modes)
+  generate-newsletter.ts   AI content generation with web search
+  build-email.ts           Content assembly and tool rotation
+  send-email.ts            Email delivery via Resend
+  template.ts              HTML email template
+  types.ts                 TypeScript interfaces
+config/
+  tools.json               Free student AI tools database
+  settings.json            Newsletter branding and schedule
+  recipients.txt           Student email list (one per line)
+.github/workflows/
+  newsletter.yml           Weekly cron schedule + manual trigger
 ```
+
+</details>
