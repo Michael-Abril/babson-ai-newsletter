@@ -23,7 +23,7 @@ const mode = process.env.MODE || "preview";
 async function main() {
   console.log(`Running in ${mode} mode...`);
 
-  // Step 1: Generate content via Claude
+  // Step 1: Generate content
   console.log("Generating newsletter content...");
   const content = await generateNewsletter();
   console.log(`Subject: ${content.subjectLine}`);

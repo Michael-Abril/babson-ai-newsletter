@@ -1,6 +1,6 @@
 # The AI Pulse — Babson College Automated AI Newsletter
 
-## Complete Project Specification for Claude Code
+## Complete Project Specification
 
 ---
 
@@ -414,14 +414,14 @@ const others = tools.filter((_, i) => i !== featuredIndex).slice(0, 4);
 
 ---
 
-## IMMEDIATE NEXT STEPS FOR CLAUDE CODE
+## DEVELOPMENT CHECKLIST
 
 1. Initialize the project with `package.json`, `tsconfig.json`, `.gitignore`
 2. Install dependencies: `@anthropic-ai/sdk`, `resend`, `tsx`, `typescript`, `@types/node`
 3. Create `config/tools.json` with the free student tools database above
 4. Create `config/settings.json` with newsletter metadata
 5. Build `src/template.ts` — the Babson-branded HTML email template
-6. Build `src/generate-newsletter.ts` — Claude API with web search
+6. Build `src/generate-newsletter.ts` — AI content generation with web search
 7. Build `src/build-email.ts` — assembles content + tools into template
 8. Build `src/send-email.ts` — Resend delivery
 9. Build `src/index.ts` — orchestrator with 3 modes
@@ -432,4 +432,4 @@ const others = tools.filter((_, i) => i !== featuredIndex).slice(0, 4);
 
 ---
 
-*This spec is the single source of truth for the project. Everything Claude Code needs is in this document.*
+*This spec is the single source of truth for the project.*

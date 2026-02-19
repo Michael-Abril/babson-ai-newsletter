@@ -1,7 +1,6 @@
 /**
- * template.ts — Babson-branded HTML email template for The AI Pulse.
- * Layout follows the prototype structure. Colors use Babson Green palette.
- * Inline CSS, email-client compatible (Gmail, Outlook, Apple Mail).
+ * Babson-branded HTML email template for The AI Pulse.
+ * Babson Green palette. Inline CSS for email client compatibility.
  */
 
 import type { NewsletterContent, Tool } from "./types.js";

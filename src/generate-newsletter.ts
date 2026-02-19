@@ -81,7 +81,7 @@ RULES:
   // Extract text from the response
   const textBlock = response.content.find((block) => block.type === "text");
   if (!textBlock || textBlock.type !== "text") {
-    throw new Error("No text response from Claude");
+    throw new Error("No text response from AI");
   }
 
   // Parse the JSON — strip any accidental markdown fencing
