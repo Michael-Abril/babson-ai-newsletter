@@ -78,16 +78,32 @@ RULES:
     ],
   });
 
-  // Extract text from the response
-  const textBlock = response.content.find((block) => block.type === "text");
-  if (!textBlock || textBlock.type !== "text") {
+  // Extract text from the response — grab the LAST text block
+  // (earlier blocks may be search-related commentary)
+  const textBlocks = response.content.filter((block) => block.type === "text");
+  if (textBlocks.length === 0) {
     throw new Error("No text response from AI");
   }
+  const textBlock = textBlocks[textBlocks.length - 1];
+  if (textBlock.type !== "text") throw new Error("No text response from AI");
 
-  // Parse the JSON — strip any accidental markdown fencing
+  // Extract JSON from the response — the model may wrap it in prose or markdown
   let jsonStr = textBlock.text.trim();
-  if (jsonStr.startsWith("```")) {
-    jsonStr = jsonStr.replace(/^```(?:json)?\n?/, "").replace(/\n?```$/, "");
+
+  // Strip markdown fencing if present
+  if (jsonStr.includes("```")) {
+    const fenced = jsonStr.match(/```(?:json)?\s*\n?([\s\S]*?)\n?\s*```/);
+    if (fenced) jsonStr = fenced[1].trim();
+  }
+
+  // If it still doesn't start with '{', find the first '{' and last '}'
+  if (!jsonStr.startsWith("{")) {
+    const start = jsonStr.indexOf("{");
+    const end = jsonStr.lastIndexOf("}");
+    if (start === -1 || end === -1) {
+      throw new Error("Could not find JSON in AI response: " + jsonStr.slice(0, 200));
+    }
+    jsonStr = jsonStr.slice(start, end + 1);
   }
 
   return JSON.parse(jsonStr) as NewsletterContent;
