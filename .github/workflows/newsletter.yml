@@ -3,6 +3,9 @@ name: The AI Pulse — Weekly Newsletter
 on:
   schedule:
     - cron: '0 18 * * 0'  # Sunday 6PM UTC = 2PM EST
+  push:
+    branches:
+      - 'claude/**'
   workflow_dispatch:
     inputs:
       mode:
@@ -30,7 +33,7 @@ jobs:
 
       - name: Generate and deliver newsletter
         env:
-          MODE: ${{ github.event.inputs.mode || 'send' }}
+          MODE: ${{ github.event.inputs.mode || (github.event_name == 'schedule' && 'send') || 'test' }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
           FROM_EMAIL: ${{ secrets.FROM_EMAIL }}
