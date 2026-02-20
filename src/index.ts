@@ -4,15 +4,34 @@ import { buildEmail } from "./build-email.js";
 import { sendNewsletter } from "./send-email.js";
 
 function loadRecipients(): string[] {
-  const filePath = "config/recipients.txt";
-  if (existsSync(filePath)) {
-    const lines = readFileSync(filePath, "utf-8")
+  // Priority 1: CSV file (supports header row with "email" column)
+  const csvPath = "config/students.csv";
+  if (existsSync(csvPath)) {
+    const lines = readFileSync(csvPath, "utf-8")
+      .split("\n")
+      .map((l) => l.trim())
+      .filter((l) => l && !l.startsWith("#"));
+    // Skip header row if it contains "email"
+    const start = lines[0]?.toLowerCase().includes("email") ? 1 : 0;
+    const emails = lines.slice(start).map((l) => {
+      // Handle CSV: take the column that looks like an email
+      const parts = l.split(",").map((p) => p.trim().replace(/"/g, ""));
+      return parts.find((p) => p.includes("@")) || parts[0];
+    }).filter((e) => e && e.includes("@"));
+    if (emails.length > 0) return emails;
+  }
+
+  // Priority 2: Plain text file (one email per line)
+  const txtPath = "config/recipients.txt";
+  if (existsSync(txtPath)) {
+    const lines = readFileSync(txtPath, "utf-8")
       .split("\n")
       .map((l) => l.trim())
       .filter((l) => l && !l.startsWith("#"));
     if (lines.length > 0) return lines;
   }
-  // Fall back to env var
+
+  // Priority 3: Environment variable
   const envEmails = process.env.STUDENT_EMAILS;
   if (envEmails) return JSON.parse(envEmails) as string[];
   return [];
