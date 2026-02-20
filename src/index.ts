@@ -1,7 +1,7 @@
 import { writeFileSync, readFileSync, mkdirSync, existsSync } from "fs";
 import { generateNewsletter } from "./generate-newsletter.js";
 import { buildEmail } from "./build-email.js";
-import { sendNewsletter } from "./send-email.js";
+import { sendNewsletter, broadcastNewsletter } from "./send-email.js";
 
 function loadRecipients(): string[] {
   // Priority 1: CSV file (supports header row with "email" column)
@@ -72,6 +72,13 @@ async function main() {
       if (emails.length === 0) throw new Error("No recipients found in config/recipients.txt or STUDENT_EMAILS");
       await sendNewsletter(html, subject, emails);
       console.log(`Sent to ${emails.length} students.`);
+      break;
+    }
+    case "broadcast": {
+      const audienceId = process.env.RESEND_AUDIENCE_ID;
+      if (!audienceId) throw new Error("RESEND_AUDIENCE_ID not set. Find it at https://resend.com/audiences");
+      await broadcastNewsletter(html, subject, audienceId);
+      console.log("Broadcast sent to Resend audience.");
       break;
     }
     default:

@@ -7,6 +7,8 @@
     "preview": "MODE=preview tsx src/index.ts",
     "test-send": "MODE=test tsx src/index.ts",
     "send": "MODE=send tsx src/index.ts",
+    "broadcast": "MODE=broadcast tsx src/index.ts",
+    "list-audiences": "tsx src/list-audiences.ts",
     "build": "tsc --noEmit"
   },
   "keywords": ["ai", "newsletter", "babson", "entrepreneurship"],
