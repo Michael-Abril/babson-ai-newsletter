@@ -1,8 +1,8 @@
-name: The AI Pulse — Weekly Newsletter
+name: The AI Pulse | Weekly Newsletter
 
 on:
   schedule:
-    - cron: '0 18 * * 0'  # Sunday 6PM UTC = 2PM EST
+    - cron: '0 15 * * 5'  # Friday 3PM UTC = 10AM EST
   workflow_dispatch:
     inputs:
       mode:
@@ -46,13 +46,16 @@ jobs:
           path: output/
           if-no-files-found: ignore
 
-      - name: Archive newsletter
+      - name: Archive newsletter to editions
         if: github.event.inputs.mode == 'send' || github.event_name == 'schedule'
         run: |
-          mkdir -p archive
-          cp output/*.html archive/ 2>/dev/null || true
+          YEAR=$(date +%Y)
+          WEEK=$(date +%V)
+          DATE=$(date +%Y-%m-%d)
+          mkdir -p editions/$YEAR
+          cp output/*.html "editions/$YEAR/week-${WEEK}-${DATE}.html" 2>/dev/null || true
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
-          git add archive/
-          git diff --staged --quiet || git commit -m "Archive newsletter $(date +%Y-%m-%d)"
+          git add editions/
+          git diff --staged --quiet || git commit -m "Archive edition: Week $WEEK ($DATE)"
           git push

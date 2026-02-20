@@ -28,6 +28,6 @@ export async function sendNewsletter(
       throw new Error(`Failed to send to ${to}: ${JSON.stringify(error)}`);
     }
 
-    console.log(`Sent to ${to} — id: ${data?.id}`);
+    console.log(`Sent to ${to} - id: ${data?.id}`);
   }
 }

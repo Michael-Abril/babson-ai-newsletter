@@ -1,14 +1,14 @@
 {
   "newsletter": {
     "name": "The AI Pulse",
-    "subtitle": "AI for Entrepreneurs — Babson College",
+    "subtitle": "Babson College – AI for Entrepreneurs by Mikey Abril",
     "tagline": "Built by Babson students for Babson students.",
     "disclaimer": "Researched with AI. Curated by humans."
   },
   "schedule": {
-    "dayOfWeek": "Sunday",
-    "timeEST": "2:00 PM",
-    "cronUTC": "0 18 * * 0"
+    "dayOfWeek": "Friday",
+    "timeEST": "10:00 AM",
+    "cronUTC": "0 15 * * 5"
   },
   "email": {
     "subjectPrefix": "The AI Pulse —",

@@ -31,7 +31,7 @@ export function buildEmail(content: NewsletterContent): { html: string; subject:
   });
 
   const html = buildHTML(content, featuredTool, otherTools, issueNumber, issueDate);
-  const subject = `The AI Pulse — ${content.subjectLine}`;
+  const subject = `The AI Pulse | ${content.subjectLine}`;
 
   return { html, subject };
 }

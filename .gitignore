@@ -4,3 +4,6 @@ output/
 .env
 *.log
 .DS_Store
+
+# Student email lists (PII - never commit)
+config/students.csv
