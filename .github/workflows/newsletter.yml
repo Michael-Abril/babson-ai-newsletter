@@ -35,7 +35,7 @@ jobs:
           RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
           FROM_EMAIL: ${{ secrets.FROM_EMAIL }}
           TEST_EMAIL: ${{ secrets.TEST_EMAIL }}
-          STUDENT_EMAILS: ${{ secrets.STUDENT_EMAILS }}
+          RESEND_AUDIENCE_ID: ${{ secrets.RESEND_AUDIENCE_ID }}
         run: npx tsx src/index.ts
 
       - name: Upload preview artifact

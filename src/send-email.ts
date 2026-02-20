@@ -1,77 +1,65 @@
 import { Resend } from "resend";
 
-function getResend() {
-  const key = process.env.RESEND_API_KEY;
-  if (!key) throw new Error("RESEND_API_KEY not set. Only needed for send/test/broadcast modes.");
-  return new Resend(key);
-}
+const resend = new Resend(process.env.RESEND_API_KEY);
 
-export async function sendNewsletter(
+export async function sendToRecipient(
   html: string,
   subject: string,
-  recipients: string[]
+  to: string
 ): Promise<void> {
-  // Resend free tier requires sending from onboarding@resend.dev
   const from = process.env.FROM_EMAIL || "The AI Pulse <onboarding@resend.dev>";
 
-  console.log(`From: ${from}`);
-  console.log(`Recipients: ${recipients.join(", ")}`);
-  console.log(`Subject: ${subject}`);
+  console.log(`Sending to ${to}...`);
+  const { data, error } = await resend.emails.send({
+    from,
+    to,
+    subject,
+    html,
+  });
 
-  for (const to of recipients) {
-    console.log(`Sending to ${to}...`);
-    const { data, error } = await getResend().emails.send({
-      from,
-      to,
-      subject,
-      html,
-    });
-
-    if (error) {
-      console.error(`RESEND ERROR for ${to}:`, JSON.stringify(error));
-      throw new Error(`Failed to send to ${to}: ${JSON.stringify(error)}`);
-    }
-
-    console.log(`Sent to ${to} - id: ${data?.id}`);
+  if (error) {
+    console.error(`RESEND ERROR for ${to}:`, JSON.stringify(error));
+    throw new Error(`Failed to send to ${to}: ${JSON.stringify(error)}`);
   }
+
+  console.log(`Sent to ${to} - id: ${data?.id}`);
 }
 
-export async function broadcastNewsletter(
+export async function sendBroadcast(
   html: string,
-  subject: string,
-  audienceId: string
+  subject: string
 ): Promise<void> {
   const from = process.env.FROM_EMAIL || "The AI Pulse <onboarding@resend.dev>";
+  const audienceId = process.env.RESEND_AUDIENCE_ID;
+  if (!audienceId) {
+    throw new Error("RESEND_AUDIENCE_ID not set. Add your Resend audience ID as a GitHub secret.");
+  }
 
+  console.log(`Creating broadcast to audience ${audienceId}...`);
   console.log(`From: ${from}`);
-  console.log(`Audience ID: ${audienceId}`);
   console.log(`Subject: ${subject}`);
 
-  // Step 1: Create the broadcast
-  console.log("Creating broadcast...");
-  const resend = getResend();
   const { data: broadcast, error: createError } = await resend.broadcasts.create({
     audienceId,
     from,
     subject,
     html,
+    name: `The AI Pulse - ${new Date().toISOString().split("T")[0]}`,
   });
 
   if (createError) {
-    console.error("RESEND BROADCAST CREATE ERROR:", JSON.stringify(createError));
+    console.error("BROADCAST CREATE ERROR:", JSON.stringify(createError));
     throw new Error(`Failed to create broadcast: ${JSON.stringify(createError)}`);
   }
 
-  console.log(`Broadcast created - id: ${broadcast?.id}`);
+  console.log(`Broadcast created - id: ${broadcast?.id}. Sending...`);
 
-  // Step 2: Send the broadcast
-  console.log("Sending broadcast...");
-  const { data: sendResult, error: sendError } = await resend.broadcasts.send(broadcast!.id);
+  const { error: sendError } = await resend.broadcasts.send(broadcast!.id);
 
   if (sendError) {
-    console.error("RESEND BROADCAST SEND ERROR:", JSON.stringify(sendError));
+    console.error("BROADCAST SEND ERROR:", JSON.stringify(sendError));
     throw new Error(`Failed to send broadcast: ${JSON.stringify(sendError)}`);
   }
 
-  console.log(`Broadcast sent successfully - id: ${sendResult?.id}`);
+  console.log(`Broadcast sent successfully - id: ${broadcast?.id}`);
 }
