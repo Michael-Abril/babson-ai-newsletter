@@ -1,6 +1,10 @@
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+function getResend() {
+  const key = process.env.RESEND_API_KEY;
+  if (!key) throw new Error("RESEND_API_KEY not set. Only needed for send/test/broadcast modes.");
+  return new Resend(key);
+}
 
 export async function sendNewsletter(
   html: string,
@@ -16,7 +20,7 @@ export async function sendNewsletter(
 
   for (const to of recipients) {
     console.log(`Sending to ${to}...`);
-    const { data, error } = await resend.emails.send({
+    const { data, error } = await getResend().emails.send({
       from,
       to,
       subject,
@@ -45,6 +49,7 @@ export async function broadcastNewsletter(
 
   // Step 1: Create the broadcast
   console.log("Creating broadcast...");
+  const resend = getResend();
   const { data: broadcast, error: createError } = await resend.broadcasts.create({
     audienceId,
     from,
