@@ -1,41 +1,7 @@
-import { writeFileSync, readFileSync, mkdirSync, existsSync } from "fs";
+import { writeFileSync, mkdirSync } from "fs";
 import { generateNewsletter } from "./generate-newsletter.js";
 import { buildEmail } from "./build-email.js";
-import { sendNewsletter } from "./send-email.js";
-
-function loadRecipients(): string[] {
-  // Priority 1: CSV file (supports header row with "email" column)
-  const csvPath = "config/students.csv";
-  if (existsSync(csvPath)) {
-    const lines = readFileSync(csvPath, "utf-8")
-      .split("\n")
-      .map((l) => l.trim())
-      .filter((l) => l && !l.startsWith("#"));
-    // Skip header row if it contains "email"
-    const start = lines[0]?.toLowerCase().includes("email") ? 1 : 0;
-    const emails = lines.slice(start).map((l) => {
-      // Handle CSV: take the column that looks like an email
-      const parts = l.split(",").map((p) => p.trim().replace(/"/g, ""));
-      return parts.find((p) => p.includes("@")) || parts[0];
-    }).filter((e) => e && e.includes("@"));
-    if (emails.length > 0) return emails;
-  }
-
-  // Priority 2: Plain text file (one email per line)
-  const txtPath = "config/recipients.txt";
-  if (existsSync(txtPath)) {
-    const lines = readFileSync(txtPath, "utf-8")
-      .split("\n")
-      .map((l) => l.trim())
-      .filter((l) => l && !l.startsWith("#"));
-    if (lines.length > 0) return lines;
-  }
-
-  // Priority 3: Environment variable
-  const envEmails = process.env.STUDENT_EMAILS;
-  if (envEmails) return JSON.parse(envEmails) as string[];
-  return [];
-}
+import { sendToRecipient, sendBroadcast } from "./send-email.js";
 
 const mode = process.env.MODE || "preview";
 
@@ -63,15 +29,13 @@ async function main() {
     case "test": {
       const testEmail = process.env.TEST_EMAIL;
       if (!testEmail) throw new Error("TEST_EMAIL not set");
-      await sendNewsletter(html, subject, [testEmail]);
+      await sendToRecipient(html, subject, testEmail);
       console.log("Test email sent.");
       break;
     }
     case "send": {
-      const emails = loadRecipients();
-      if (emails.length === 0) throw new Error("No recipients found in config/recipients.txt or STUDENT_EMAILS");
-      await sendNewsletter(html, subject, emails);
-      console.log(`Sent to ${emails.length} students.`);
+      await sendBroadcast(html, subject);
+      console.log("Newsletter broadcast sent to audience.");
       break;
     }
     default:
