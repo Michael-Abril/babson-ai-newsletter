@@ -1,6 +1,6 @@
 /**
  * HTML email template for The AI Pulse newsletter.
- * Clean editorial design — text-forward, minimal color, typography-driven.
+ * Clean editorial design - text-forward, minimal color, typography-driven.
  */
 
 import type { NewsletterContent, Tool } from "./types.js";
@@ -28,13 +28,13 @@ export function buildHTML(
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The AI Pulse — Issue #${issueNumber}</title>
+  <title>The AI Pulse | Issue #${issueNumber}</title>
 </head>
 <body style="margin: 0; padding: 0; background-color: ${BG}; font-family: ${SANS}; -webkit-text-size-adjust: 100%;">
 
   <!-- Preheader -->
   <div style="display: none; max-height: 0; overflow: hidden; font-size: 1px; color: ${BG};">
-    ${content.bigStory.headline} — plus free AI tools and founder frameworks.
+    ${content.bigStory.headline} + free AI tools and frameworks you can use this week.
   </div>
 
   <table role="presentation" cellpadding="0" cellspacing="0" width="100%" style="background-color: ${BG};">
@@ -57,7 +57,7 @@ export function buildHTML(
                 </tr>
                 <tr>
                   <td colspan="2" style="padding-top: 2px;">
-                    <p style="font-family: ${SANS}; font-size: 12px; color: ${TEXT_MID}; margin: 0;">Babson College · AI for Entrepreneurs</p>
+                    <p style="font-family: ${SANS}; font-size: 12px; color: ${TEXT_MID}; margin: 0;">Babson College \u2013 AI for Entrepreneurs by Mikey Abril</p>
                   </td>
                 </tr>
               </table>
@@ -269,7 +269,7 @@ export function buildHTML(
               <table role="presentation" cellpadding="0" cellspacing="0" width="100%">
                 <tr>
                   <td align="center">
-                    <p style="font-family: ${SANS}; font-size: 12px; color: ${TEXT_MID}; margin: 0;">The AI Pulse &middot; Babson College</p>
+                    <p style="font-family: ${SANS}; font-size: 12px; color: ${TEXT_MID}; margin: 0;">The AI Pulse \u00b7 Babson College \u2013 AI for Entrepreneurs by Mikey Abril</p>
                     <p style="font-family: ${SANS}; font-size: 11px; color: #999; margin: 8px 0 0 0;">
                       <a href="{{unsubscribe_url}}" target="_blank" style="color: #999; text-decoration: underline;">Unsubscribe</a>
                     </p>
