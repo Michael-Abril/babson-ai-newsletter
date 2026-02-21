@@ -1,6 +1,16 @@
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+let resend: Resend | null = null;
+
+function getResendClient(): Resend {
+  if (!resend) {
+    if (!process.env.RESEND_API_KEY) {
+      throw new Error("RESEND_API_KEY not set. Add it to your .env file or GitHub secrets.");
+    }
+    resend = new Resend(process.env.RESEND_API_KEY);
+  }
+  return resend;
+}
 
 export async function sendToRecipient(
   html: string,
@@ -10,7 +20,7 @@ export async function sendToRecipient(
   const from = process.env.FROM_EMAIL || "The AI Pulse <onboarding@resend.dev>";
 
   console.log(`Sending to ${to}...`);
-  const { data, error } = await resend.emails.send({
+  const { data, error } = await getResendClient().emails.send({
     from,
     to,
     subject,
@@ -39,7 +49,7 @@ export async function sendBroadcast(
   console.log(`From: ${from}`);
   console.log(`Subject: ${subject}`);
 
-  const { data: broadcast, error: createError } = await resend.broadcasts.create({
+  const { data: broadcast, error: createError } = await getResendClient().broadcasts.create({
     audienceId,
     from,
     subject,
@@ -54,7 +64,7 @@ export async function sendBroadcast(
 
   console.log(`Broadcast created - id: ${broadcast?.id}. Sending...`);
 
-  const { error: sendError } = await resend.broadcasts.send(broadcast!.id);
+  const { error: sendError } = await getResendClient().broadcasts.send(broadcast!.id);
 
   if (sendError) {
     console.error("BROADCAST SEND ERROR:", JSON.stringify(sendError));
