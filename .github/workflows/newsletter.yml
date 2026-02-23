@@ -36,7 +36,7 @@ jobs:
           FROM_EMAIL: ${{ secrets.FROM_EMAIL }}
           TEST_EMAIL: ${{ secrets.TEST_EMAIL }}
           RESEND_AUDIENCE_ID: ${{ secrets.RESEND_AUDIENCE_ID }}
-        run: npx tsx src/index.ts
+        run: npx tsx src/multi-agent.ts
 
       - name: Upload preview artifact
         if: always()
@@ -54,8 +54,25 @@ jobs:
           DATE=$(date +%Y-%m-%d)
           mkdir -p editions/$YEAR
           cp output/*.html "editions/$YEAR/week-${WEEK}-${DATE}.html" 2>/dev/null || true
+          cp output/*.json "editions/$YEAR/week-${WEEK}-${DATE}.json" 2>/dev/null || true
+          cp editions/index.json editions/index.json 2>/dev/null || true
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
           git add editions/
           git diff --staged --quiet || git commit -m "Archive edition: Week $WEEK ($DATE)"
           git push
+
+      - name: Create failure issue
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const date = new Date().toISOString().split('T')[0];
+            const runUrl = `https://github.com/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `Newsletter pipeline failed: ${date}`,
+              body: `The AI Pulse newsletter pipeline failed on ${date}.\n\n**Run:** ${runUrl}\n\n**Trigger:** ${context.eventName}\n\nCheck the workflow logs for details.`,
+              labels: ['bug', 'pipeline-failure']
+            });

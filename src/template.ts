@@ -140,8 +140,12 @@ export function buildHTML(
                     ${content.founderFramework.steps
                       .map(
                         (step, i) => `
-                    <p style="font-family: ${SANS}; color: ${DARK}; font-size: 14px; font-weight: 600; margin: 0 0 4px 0;">${i + 1}. ${step.title}</p>
-                    <p style="font-family: ${SANS}; color: ${TEXT}; font-size: 14px; line-height: 1.6; margin: 0 0 14px 0;">${step.description}</p>`
+                    <p style="font-family: ${SANS}; color: ${DARK}; font-size: 14px; font-weight: 600; margin: 0 0 4px 0;">${i + 1}. ${step.title}${step.tool ? ` <a href="${step.toolUrl || '#'}" target="_blank" style="color: ${GREEN}; text-decoration: none; font-weight: 500;">[${step.tool}]</a>` : ''}</p>
+                    <p style="font-family: ${SANS}; color: ${TEXT}; font-size: 14px; line-height: 1.6; margin: 0 0 ${step.prompt ? '8px' : '14px'} 0;">${step.description}</p>${step.prompt ? `
+                    <div style="background-color: #f8f8f8; border-left: 3px solid ${GREEN}; padding: 12px 14px; margin: 0 0 14px 0; border-radius: 0 4px 4px 0;">
+                      <p style="font-family: ${SANS}; font-size: 11px; font-weight: 600; color: ${TEXT_MID}; text-transform: uppercase; letter-spacing: 0.5px; margin: 0 0 6px 0;">Copy this prompt:</p>
+                      <p style="font-family: 'Courier New', monospace; font-size: 13px; color: ${DARK}; line-height: 1.5; margin: 0; white-space: pre-wrap;">${step.prompt}</p>
+                    </div>` : ''}`
                       )
                       .join("")}
                     <p style="font-family: ${SANS}; color: ${GREEN}; font-size: 14px; font-weight: 600; margin: 4px 0 0 0;">${content.founderFramework.bottomLine}</p>
@@ -212,9 +216,13 @@ export function buildHTML(
                         .map(
                           (wf, i) => `
                       <tr>
-                        <td style="padding: 8px 0;${i < content.aiInBusiness.workflows.length - 1 ? ` border-bottom: 1px solid ${RULE};` : ""}">
-                          <p style="font-family: ${SANS}; color: ${DARK}; font-size: 14px; font-weight: 600; margin: 0 0 3px 0;">${wf.title}</p>
-                          <p style="font-family: ${SANS}; color: ${TEXT}; font-size: 14px; line-height: 1.6; margin: 0;">${wf.description}</p>
+                        <td style="padding: 12px 0;${i < content.aiInBusiness.workflows.length - 1 ? ` border-bottom: 1px solid ${RULE};` : ""}">
+                          <p style="font-family: ${SANS}; color: ${DARK}; font-size: 14px; font-weight: 600; margin: 0 0 3px 0;">${wf.title}${wf.tool ? ` <a href="${wf.toolUrl || '#'}" target="_blank" style="color: ${GREEN}; text-decoration: none; font-weight: 500;">[${wf.tool}]</a>` : ''}</p>
+                          <p style="font-family: ${SANS}; color: ${TEXT}; font-size: 14px; line-height: 1.6; margin: 0 0 ${wf.prompt ? '8px' : '0'} 0;">${wf.description}</p>${wf.prompt ? `
+                          <div style="background-color: #f8f8f8; border-left: 3px solid ${GREEN}; padding: 10px 12px; margin: 0; border-radius: 0 4px 4px 0;">
+                            <p style="font-family: ${SANS}; font-size: 10px; font-weight: 600; color: ${TEXT_MID}; text-transform: uppercase; letter-spacing: 0.5px; margin: 0 0 4px 0;">Copy this prompt:</p>
+                            <p style="font-family: 'Courier New', monospace; font-size: 12px; color: ${DARK}; line-height: 1.4; margin: 0; white-space: pre-wrap;">${wf.prompt}</p>
+                          </div>` : ''}
                         </td>
                       </tr>`
                         )
@@ -253,12 +261,49 @@ export function buildHTML(
               <!-- NEXT WEEK -->
               <table role="presentation" cellpadding="0" cellspacing="0" width="100%">
                 <tr>
-                  <td style="padding: 28px 32px 32px 32px;">
+                  <td style="padding: 28px 32px 24px 32px;">
                     <p style="font-family: ${SANS}; font-size: 11px; font-weight: 600; letter-spacing: 1.2px; text-transform: uppercase; color: ${TEXT_MID}; margin: 0 0 6px 0;">Next Week</p>
                     <p style="font-family: ${SANS}; color: ${TEXT}; font-size: 14px; line-height: 1.55; margin: 0;">${content.nextWeek}</p>
                   </td>
                 </tr>
               </table>
+
+              <!-- ENGAGEMENT CTA -->
+              <table role="presentation" cellpadding="0" cellspacing="0" width="100%">
+                <tr>
+                  <td style="padding: 0 32px 32px 32px;">
+                    <table role="presentation" cellpadding="0" cellspacing="0" width="100%" style="background-color: #f8f8f8; border-radius: 6px;">
+                      <tr>
+                        <td style="padding: 16px 20px;">
+                          <p style="font-family: ${SANS}; color: ${TEXT}; font-size: 14px; line-height: 1.5; margin: 0 0 12px 0;">
+                            <strong style="color: ${DARK};">What'd you think of this week's newsletter?</strong><br>
+                            Reply to this email with your thoughts, questions, or AI tools you want us to cover.
+                          </p>
+                          <p style="font-family: ${SANS}; font-size: 13px; color: ${TEXT_MID}; margin: 0;">
+                            Know a Babson entrepreneur who'd love this? <a href="mailto:?subject=Check out The AI Pulse&body=I thought you'd like this weekly AI newsletter for Babson entrepreneurs: https://theaipulse.substack.com" style="color: ${GREEN}; text-decoration: none; font-weight: 500;">Forward it to them</a>
+                          </p>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+
+              ${content.founderSpotlight?.enabled ? `
+              <!-- FOUNDER SPOTLIGHT -->
+              <table role="presentation" cellpadding="0" cellspacing="0" width="100%">
+                <tr><td style="padding: 0 32px;"><div style="height: 1px; background-color: ${RULE};"></div></td></tr>
+              </table>
+              <table role="presentation" cellpadding="0" cellspacing="0" width="100%">
+                <tr>
+                  <td style="padding: 24px 32px 32px 32px;">
+                    <p style="font-family: ${SANS}; font-size: 11px; font-weight: 600; letter-spacing: 1.2px; text-transform: uppercase; color: ${TEXT_MID}; margin: 0 0 12px 0;">Founder Spotlight</p>
+                    <p style="font-family: ${FONT}; color: ${DARK}; font-size: 17px; font-weight: 700; margin: 0 0 8px 0; line-height: 1.35;">${content.founderSpotlight.startupName}</p>
+                    <p style="font-family: ${SANS}; color: ${TEXT}; font-size: 14px; line-height: 1.6; margin: 0 0 14px 0;">${content.founderSpotlight.oneLinePitch}</p>
+                    <a href="${content.founderSpotlight.ctaUrl}" target="_blank" style="display: inline-block; font-family: ${SANS}; background-color: ${GREEN}; color: ${WHITE}; font-size: 13px; font-weight: 600; padding: 10px 22px; border-radius: 4px; text-decoration: none;">${content.founderSpotlight.ctaText}</a>
+                  </td>
+                </tr>
+              </table>` : ""}
 
             </td>
           </tr>
@@ -270,8 +315,14 @@ export function buildHTML(
                 <tr>
                   <td align="center">
                     <p style="font-family: ${SANS}; font-size: 12px; color: ${TEXT_MID}; margin: 0;">The AI Pulse \u00b7 Babson College \u2013 AI for Entrepreneurs by Mikey Abril</p>
+                    <p style="font-family: ${SANS}; font-size: 11px; color: #999; margin: 8px 0 0 0; line-height: 1.6;">
+                      Researched with AI. Curated by humans.<br>
+                      Babson College, 231 Forest Street, Babson Park, MA 02457
+                    </p>
                     <p style="font-family: ${SANS}; font-size: 11px; color: #999; margin: 8px 0 0 0;">
                       <a href="{{unsubscribe_url}}" target="_blank" style="color: #999; text-decoration: underline;">Unsubscribe</a>
+                      &nbsp;\u00b7&nbsp;
+                      <a href="https://theaipulse.substack.com/privacy" target="_blank" style="color: #999; text-decoration: underline;">Privacy Policy</a>
                     </p>
                   </td>
                 </tr>

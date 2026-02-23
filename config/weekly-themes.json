@@ -1,0 +1,281 @@
+{
+  "description": "12-week rotating themes for 'AI in Your Business' section. Each week focuses on related tools and workflows.",
+  "themes": [
+    {
+      "week": 1,
+      "theme": "AI Fundamentals",
+      "title": "Your AI Command Center",
+      "subtitle": "Master the big 3 AI assistants before they master you",
+      "workflows": [
+        {
+          "title": "The 3-AI Stack for Any Business Question",
+          "description": "Use Claude for complex analysis, ChatGPT for creative brainstorming, Perplexity for real-time research. Each excels at different things.",
+          "prompt": "I'm building [your startup]. Help me think through [specific problem]. First, what questions should I be asking that I haven't considered?"
+        },
+        {
+          "title": "Custom Instructions That Actually Work",
+          "description": "Stop starting from scratch every conversation. Set up your AI to know your business context permanently.",
+          "prompt": "You are my startup advisor. My company is [name], we [one-line pitch]. Our target customer is [description]. When I ask questions, consider: 1) My limited budget as a student founder 2) Speed to market over perfection 3) The Babson network as an asset"
+        },
+        {
+          "title": "The Research-to-Action Pipeline",
+          "description": "Turn any research session into clear next steps in under 10 minutes.",
+          "prompt": "Based on this research, give me: 1) The single most important insight 2) Three specific actions I can take this week 3) One thing I should investigate further"
+        }
+      ]
+    },
+    {
+      "week": 2,
+      "theme": "Market Research & Validation",
+      "title": "Validate Before You Build",
+      "subtitle": "Stop building things nobody wants. Here's how to know in 48 hours.",
+      "workflows": [
+        {
+          "title": "Competitor Analysis in 30 Minutes",
+          "description": "Map your entire competitive landscape without spending weeks in spreadsheets.",
+          "prompt": "I'm building [product description]. Find me: 1) The top 5 direct competitors with pricing 2) 3 indirect competitors I might be missing 3) Gaps in the market none of them serve 4) What customers complain about most in reviews"
+        },
+        {
+          "title": "The 'Would They Actually Pay?' Test",
+          "description": "Find out if your idea has legs before writing a single line of code.",
+          "prompt": "Help me design a landing page test for [idea]. I need: 1) A headline that explains the value in <10 words 2) Three bullet points for the body 3) A CTA that measures real intent (not just interest) 4) What would make someone NOT sign up"
+        },
+        {
+          "title": "Customer Interview Questions That Don't Suck",
+          "description": "Stop asking leading questions. Get insights that actually change your product.",
+          "prompt": "Generate 10 customer discovery questions for [target customer] about [problem]. Rules: No yes/no questions, no leading questions, focus on past behavior not future intent."
+        }
+      ]
+    },
+    {
+      "week": 3,
+      "theme": "Building Your MVP",
+      "title": "Ship in a Weekend",
+      "subtitle": "You don't need to know how to code. These tools don't care.",
+      "workflows": [
+        {
+          "title": "Describe-to-Deploy in Plain English",
+          "description": "Tell Cursor or Replit what you want. Watch it build. Ship before your next class.",
+          "prompt": "Build me a simple web app that: [describe functionality]. Use: React, Tailwind CSS, and a simple backend. Make it work first, make it pretty second. Include basic error handling."
+        },
+        {
+          "title": "Landing Page in 15 Minutes",
+          "description": "Your startup exists when it has a URL. Get one before lunch.",
+          "prompt": "Create a landing page for [startup name]. We help [target customer] do [benefit] without [pain point]. Include: hero section, 3 benefit bullets, one testimonial placeholder, email signup, clean footer."
+        },
+        {
+          "title": "Debug Like a 10-Year Developer",
+          "description": "Stop Googling error messages. Your AI pair programmer has seen this before.",
+          "prompt": "I got this error: [paste error]. Here's my code: [paste relevant code]. What's wrong, why did it happen, and how do I fix it? Explain it like I'm a business student who just started coding."
+        }
+      ]
+    },
+    {
+      "week": 4,
+      "theme": "Branding & Visual Identity",
+      "title": "Look Legit Instantly",
+      "subtitle": "Your startup should look like a real company. 2 hours, zero design skills.",
+      "workflows": [
+        {
+          "title": "Brand Identity in One Session",
+          "description": "Logo, colors, fonts, and brand voice. All consistent. All professional.",
+          "prompt": "Create a brand guide for [startup name]. We're a [industry] company targeting [audience]. Our personality is [2-3 adjectives]. Give me: 1) 3 color palette options with hex codes 2) Font pairing recommendation 3) Logo concept descriptions 4) Brand voice guidelines (how we talk vs don't talk)"
+        },
+        {
+          "title": "Social Media Templates That Match",
+          "description": "Never wonder 'does this look right?' again. Create templates once, use forever.",
+          "prompt": "Design a set of Instagram templates for [brand]. Include: 1) Quote post 2) Product/feature announcement 3) Customer testimonial 4) Behind-the-scenes 5) Educational carousel. Use colors [hex codes] and keep consistent spacing."
+        },
+        {
+          "title": "Product Mockups Without Photoshop",
+          "description": "Show your product in context. Investors need to see the vision.",
+          "prompt": "Create a realistic mockup showing [product/app] being used by [target user] in [context/setting]. Make it look professional and aspirational but believable. Style: modern, clean, natural lighting."
+        }
+      ]
+    },
+    {
+      "week": 5,
+      "theme": "Pitching & Fundraising",
+      "subtitle": "Win the room. Close the round.",
+      "title": "Pitch Perfect",
+      "workflows": [
+        {
+          "title": "Investor Deck in One Hour",
+          "description": "The 10 slides every investor expects. AI writes them, you refine them.",
+          "prompt": "Create a 10-slide pitch deck outline for [startup]. Include: Problem, Solution, Market Size, Business Model, Traction, Competition, Team, Financials, Ask, Vision. For each slide, write: the headline, 3 bullet points max, and what visual to include."
+        },
+        {
+          "title": "Practice Pitch with Brutal Feedback",
+          "description": "Get ripped apart by AI before an investor does it in person.",
+          "prompt": "I'm going to pitch you my startup. Act as a skeptical VC who has seen 1000 pitches. After I finish, give me: 1) The 3 biggest holes in my pitch 2) Questions you'd definitely ask 3) What almost made you interested 4) One thing to fix before my next pitch"
+        },
+        {
+          "title": "Financial Model for Non-Finance People",
+          "description": "Revenue projections that don't look ridiculous. Even if you failed accounting.",
+          "prompt": "Help me build a simple 3-year financial model for [business]. Assumptions: [pricing, customer acquisition method, team size]. Give me: Monthly recurring revenue projection, key costs, break-even analysis, and the metrics investors will ask about."
+        }
+      ]
+    },
+    {
+      "week": 6,
+      "theme": "Sales & Outreach",
+      "title": "Fill Your Pipeline",
+      "subtitle": "Cold outreach that gets warm responses. No cringe required.",
+      "workflows": [
+        {
+          "title": "Cold Email That Gets Replies",
+          "description": "The AI has read 10,000 cold emails. It knows what works.",
+          "prompt": "Write a cold email to [target role] at [company type]. I want them to [desired action]. Keep it under 100 words. No fluff, no obvious templates. Reference something specific about their company. Make the ask crystal clear."
+        },
+        {
+          "title": "LinkedIn Outreach Without Being Annoying",
+          "description": "Connect with purpose. Stop sounding like everyone else.",
+          "prompt": "Write a LinkedIn connection request to [person type]. Context: [why I want to connect]. Keep it under 300 characters. Don't say 'I'd love to pick your brain' or 'I noticed we both...' Be specific and genuine."
+        },
+        {
+          "title": "Follow-Up Sequence That Closes",
+          "description": "Most deals happen after the 5th touch. AI doesn't forget to follow up.",
+          "prompt": "Create a 5-email follow-up sequence for [prospect type] who expressed interest but went quiet. Space them: Day 3, Day 7, Day 14, Day 21, Day 30. Each email should be shorter than the last. Final email should be a graceful close-the-loop."
+        }
+      ]
+    },
+    {
+      "week": 7,
+      "theme": "Content Creation",
+      "title": "Create Like a Full Team",
+      "subtitle": "Blog posts, videos, podcasts. You're the whole content team now.",
+      "workflows": [
+        {
+          "title": "Blog Post From Idea to Published",
+          "description": "Outline, draft, edit, optimize. 90 minutes total.",
+          "prompt": "Write a blog post about [topic] for [audience]. It should: 1) Hook them in the first line 2) Include a surprising statistic or insight 3) Have 3 actionable takeaways 4) End with a clear CTA. Length: 800 words. Tone: conversational but credible."
+        },
+        {
+          "title": "Repurpose One Piece Into Five",
+          "description": "Never start from scratch. Turn one idea into a content ecosystem.",
+          "prompt": "I have this [blog post/video/podcast]. Turn it into: 1) A Twitter/X thread (10 tweets) 2) A LinkedIn post 3) An Instagram carousel script 4) A newsletter section 5) A YouTube Shorts script. Keep the core message but adapt the format."
+        },
+        {
+          "title": "Video Script That Keeps Attention",
+          "description": "The first 3 seconds decide everything. AI knows the patterns.",
+          "prompt": "Write a 60-second video script about [topic]. Structure: Hook (3 sec), Problem (10 sec), Solution (30 sec), Proof (10 sec), CTA (7 sec). Make the hook so good they can't scroll away."
+        }
+      ]
+    },
+    {
+      "week": 8,
+      "theme": "Social Media & Marketing",
+      "title": "Own Your Feed",
+      "subtitle": "Stop posting randomly. Start building an audience that buys.",
+      "workflows": [
+        {
+          "title": "Content Calendar for the Month",
+          "description": "Plan 30 days of posts in 30 minutes. Never stare at a blank screen again.",
+          "prompt": "Create a 30-day social media calendar for [brand] on [platforms]. Mix: 40% value/educational, 30% behind-the-scenes/personal, 20% promotional, 10% engagement/questions. Include specific post ideas for each day."
+        },
+        {
+          "title": "Viral Hook Generator",
+          "description": "The first line matters more than everything else combined.",
+          "prompt": "Generate 20 hook options for a post about [topic]. Requirements: Pattern interrupt, specific (not vague), creates curiosity gap. Mix styles: contrarian takes, personal stories, data-driven, how-to."
+        },
+        {
+          "title": "Ad Copy That Converts",
+          "description": "Stop boosting posts that don't work. Write ads that pay for themselves.",
+          "prompt": "Write Facebook/Instagram ad copy for [product]. Target: [audience]. Goal: [conversion action]. Create: 3 headline options, 3 primary text options (short, medium, long), 3 CTA options. Use the PAS framework (Problem, Agitate, Solution)."
+        }
+      ]
+    },
+    {
+      "week": 9,
+      "theme": "Productivity & Operations",
+      "title": "Run Like a Real Company",
+      "subtitle": "Systems that scale. Even when it's just you.",
+      "workflows": [
+        {
+          "title": "SOPs That Write Themselves",
+          "description": "Document your processes once. Onboard anyone in minutes.",
+          "prompt": "Create a standard operating procedure for [process]. Include: Overview (what and why), Step-by-step instructions, Common mistakes to avoid, Success metrics, FAQ. Write it so someone with zero context could follow it perfectly."
+        },
+        {
+          "title": "Meeting Notes to Action Items",
+          "description": "Stop letting meetings disappear. Extract value from every call.",
+          "prompt": "Here are my meeting notes: [paste notes]. Extract: 1) Key decisions made 2) Action items (who, what, when) 3) Open questions to resolve 4) Topics punted to next meeting. Format as a clean summary I can share with the team."
+        },
+        {
+          "title": "Weekly Review That Actually Works",
+          "description": "Reflect on what matters. Plan what moves the needle.",
+          "prompt": "Help me do my weekly review. Last week I: [what happened]. My goals were: [goals]. Questions to answer: What worked? What didn't? What should I do more of? What should I stop doing? What are my top 3 priorities for next week?"
+        }
+      ]
+    },
+    {
+      "week": 10,
+      "theme": "Customer Service & Support",
+      "title": "Scale Your Support",
+      "subtitle": "Delight customers 24/7. Even while you're in class.",
+      "workflows": [
+        {
+          "title": "FAQ That Answers Before They Ask",
+          "description": "Reduce support tickets by 70% with a knowledge base that actually helps.",
+          "prompt": "Create a comprehensive FAQ for [product/service]. Include the 20 most common questions across: Getting started, Using the product, Billing, Troubleshooting, Account management. Write answers that are friendly but efficient."
+        },
+        {
+          "title": "Response Templates That Feel Personal",
+          "description": "Fast replies that don't sound robotic. Your customers will think you're a bigger team.",
+          "prompt": "Create 10 customer support response templates for [business]. Scenarios: New customer welcome, billing question, feature request, bug report, refund request, positive feedback, negative feedback, follow-up after resolution. Each should feel human and on-brand."
+        },
+        {
+          "title": "Turn Complaints Into Testimonials",
+          "description": "The angry customer today is the raving fan tomorrow. Handle it right.",
+          "prompt": "A customer just sent this complaint: [complaint]. Help me: 1) Acknowledge their frustration genuinely 2) Take ownership without over-apologizing 3) Offer a specific solution 4) Turn this into an opportunity to exceed expectations"
+        }
+      ]
+    },
+    {
+      "week": 11,
+      "theme": "Data & Analytics",
+      "title": "Decisions, Not Dashboards",
+      "subtitle": "Turn your spreadsheets into insights. No data science degree needed.",
+      "workflows": [
+        {
+          "title": "Spreadsheet Analysis in Plain English",
+          "description": "Upload your data. Ask questions. Get answers.",
+          "prompt": "Here's my data: [describe or paste]. Tell me: 1) What are the key trends? 2) What's surprising or unexpected? 3) What should I investigate further? 4) What decisions does this data support? 5) What data am I missing?"
+        },
+        {
+          "title": "Metrics Dashboard for Your Startup",
+          "description": "Track the 5 numbers that actually matter. Ignore everything else.",
+          "prompt": "Help me set up a metrics dashboard for [business type]. Give me: 1) The 5 most important metrics to track 2) Why each matters 3) What 'good' looks like for a startup at my stage 4) How often to review each one 5) Warning signs to watch for"
+        },
+        {
+          "title": "Survey Analysis Without the PhD",
+          "description": "You ran the survey. Now understand what it means.",
+          "prompt": "Analyze these survey responses: [paste responses]. Tell me: 1) Top 3 themes across all responses 2) Sentiment breakdown (positive/neutral/negative) 3) Specific quotes that capture key insights 4) Recommendations based on the feedback 5) Follow-up questions to ask"
+        }
+      ]
+    },
+    {
+      "week": 12,
+      "theme": "Automation & Scale",
+      "title": "Work Less, Do More",
+      "subtitle": "Build systems that run without you. The AI handles the busy work.",
+      "workflows": [
+        {
+          "title": "Identify What to Automate First",
+          "description": "Not everything should be automated. Find the high-impact targets.",
+          "prompt": "Here's how I spend my time each week: [list tasks and hours]. Identify: 1) Tasks that are repetitive and rule-based (automate these) 2) Tasks that need human judgment (keep these) 3) Tasks I should stop doing entirely 4) The one automation that would save me the most time"
+        },
+        {
+          "title": "Build Your First Automation",
+          "description": "No code required. Just describe what you want to happen.",
+          "prompt": "I want to automate this: When [trigger happens], then [action should occur]. Walk me through setting this up in Zapier or Make. Include: What apps to connect, what fields to map, how to test it, common errors to avoid."
+        },
+        {
+          "title": "AI Agent That Works for You",
+          "description": "Create a virtual employee that handles specific tasks automatically.",
+          "prompt": "Design an AI agent for [specific task]. It should: 1) Monitor [input source] 2) Process using [criteria] 3) Take action by [output action] 4) Escalate to me when [conditions]. What tools would I connect? What prompts would I use?"
+        }
+      ]
+    }
+  ]
+}

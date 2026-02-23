@@ -27,7 +27,13 @@ function getIssueNumber(date: Date): number {
   return weeksSinceLaunch + 1; // Issue 1 is week 0
 }
 
-export function buildEmail(content: NewsletterContent): { html: string; subject: string } {
+export function buildEmail(content: NewsletterContent): {
+  html: string;
+  subject: string;
+  subjectLine: string;
+  issueNumber: number;
+  issueDate: string;
+} {
   const tools: Tool[] = JSON.parse(readFileSync(toolsPath, "utf-8"));
 
   const weekNumber = getISOWeekNumber(new Date());
@@ -43,7 +49,8 @@ export function buildEmail(content: NewsletterContent): { html: string; subject:
   });
 
   const html = buildHTML(content, featuredTool, otherTools, issueNumber, issueDate);
-  const subject = `The AI Pulse | ${content.subjectLine}`;
+  const subjectLine = content.subjectLine;
+  const subject = `The AI Pulse | ${subjectLine}`;
 
-  return { html, subject };
+  return { html, subject, subjectLine, issueNumber, issueDate };
 }

@@ -1,0 +1,120 @@
+{
+  "meta": {
+    "issueNumber": 6,
+    "weeklyTheme": "Sales & Outreach",
+    "publishDate": "2026-03-27",
+    "qaScore": 92
+  },
+  "newsletter": {
+    "subjectLine": "The cold email that got me 12 meetings (copy it)",
+    "weekTopic": "Sales & Outreach",
+    "bigStory": {
+      "headline": "OpenAI just made everyone a sales team",
+      "summary": "OpenAI dropped 'Operator' this week - an AI agent that can browse the web, fill out forms, and take actions on your behalf. Early users are already using it to research prospects, personalize outreach at scale, and even book meetings automatically. The days of spending 3 hours researching before a sales call might be over.",
+      "sourceUrl": "https://openai.com/operator"
+    },
+    "classConnection": "Professor Smith spent half of ENT 101 hammering 'do things that don't scale.' And he's right - for validation. But once you've validated? The founders who win are the ones who figure out how to scale the unscalable. AI outreach tools don't replace the human touch. They give you time to actually BE human with the prospects who matter. Your unfair advantage: you're learning this while your future competitors are still doing it manually.",
+    "threeThings": [
+      {
+        "headline": "Anthropic valued at $60B after new funding round",
+        "summary": "Claude's parent company just raised at a valuation that makes them one of the most valuable startups ever. For context: that's more than Airbnb was worth at IPO.",
+        "takeaway": "The AI arms race isn't slowing down. If you're not using Claude yet, you're leaving money on the table. The free tier is genuinely good.",
+        "sourceUrl": "https://techcrunch.com/anthropic-funding"
+      },
+      {
+        "headline": "HubSpot launches free AI-powered CRM features",
+        "summary": "HubSpot added AI writing, contact enrichment, and predictive lead scoring to their free tier. Yes, free. No credit card.",
+        "takeaway": "Stop paying for CRM software. HubSpot's free tier now does 80% of what you'd pay $500/month for with Salesforce. Set it up this weekend.",
+        "sourceUrl": "https://hubspot.com/ai"
+      },
+      {
+        "headline": "LinkedIn's new AI features are actually useful",
+        "summary": "LinkedIn rolled out AI-assisted messaging that helps you write better connection requests and InMails. It pulls context from profiles and suggests personalization.",
+        "takeaway": "Test it before you dismiss it. The suggestions aren't perfect, but they're a solid starting point. Edit heavily - LinkedIn's AI sounds very LinkedIn.",
+        "sourceUrl": "https://linkedin.com/pulse/ai-features"
+      }
+    ],
+    "founderFramework": {
+      "title": "The Cold Outreach Stack That Actually Works",
+      "intro": "I tested 47 different cold email approaches last semester. 43 of them bombed. Here's the stack that consistently gets responses - built for founders with zero budget and no sales team.",
+      "steps": [
+        {
+          "title": "Step 1: Build Your Hit List (15 min)",
+          "description": "Don't spray and pray. Pick 20 perfect-fit prospects. Quality over quantity always wins in cold outreach.",
+          "prompt": "I'm selling [product/service] to [target customer type]. Find me 20 companies that: 1) Have [specific signal that shows they need what I offer] 2) Are between [company size] 3) Are located in [geography if relevant] 4) Have recently [trigger event that makes them likely to buy]. For each company, find the best person to contact and their LinkedIn profile.",
+          "tool": "Perplexity",
+          "toolUrl": "https://perplexity.ai"
+        },
+        {
+          "title": "Step 2: Write the Email That Gets Opened",
+          "description": "Subject line = 50% of your success. The body should be so short it almost feels rude. That's how you know it's right.",
+          "prompt": "Write a cold email to [person's name and role] at [company]. Reference this specific thing about them: [one genuine observation from their LinkedIn or company news]. I want them to [specific ask - usually a 15-min call]. Rules: Under 75 words total. No 'I hope this email finds you well.' No 'I'd love to pick your brain.' Sound like a human, not a salesperson.",
+          "tool": "Claude",
+          "toolUrl": "https://claude.ai"
+        },
+        {
+          "title": "Step 3: Set Up the Follow-Up Sequence",
+          "description": "80% of deals happen after the 5th touch. Most people give up after 1. Don't be most people.",
+          "prompt": "Create a 5-email follow-up sequence for someone who didn't respond to my initial email. Space them: Day 3, Day 7, Day 14, Day 21, Day 30. Each email should be SHORTER than the last. The final email should gracefully close the loop (not beg). Never guilt them. Always provide an easy out.",
+          "tool": "Copy.ai",
+          "toolUrl": "https://copy.ai"
+        },
+        {
+          "title": "Step 4: Track Everything (Yes, Everything)",
+          "description": "What gets measured gets improved. Know your open rates, reply rates, and meeting conversion rates.",
+          "prompt": "Help me set up a simple tracking spreadsheet for cold outreach. Columns I need: Prospect name, Company, Email, Date sent, Follow-up 1-5 dates, Open status, Reply status, Meeting booked, Outcome, Notes. Add conditional formatting to highlight follow-ups due today.",
+          "tool": "HubSpot CRM",
+          "toolUrl": "https://hubspot.com"
+        },
+        {
+          "title": "Step 5: Learn From Every Reply (and Non-Reply)",
+          "description": "After 20 emails, you'll have enough data to optimize. Pattern recognition is your best friend.",
+          "prompt": "Here are my cold email results from the past 2 weeks: [paste your data - emails sent, opens, replies, meetings]. Analyze: 1) Which subject lines performed best and why? 2) What time/day got the most opens? 3) What pattern do you see in replies vs non-replies? 4) How should I adjust my approach?",
+          "tool": "Claude",
+          "toolUrl": "https://claude.ai"
+        }
+      ],
+      "bottomLine": "This system takes about 2 hours to set up. After that, you can run 20 highly-personalized outreach campaigns per week in under an hour. One Babson founder used this exact approach to book 12 investor meetings last month. Zero warm intros. Pure cold outreach."
+    },
+    "aiInBusiness": {
+      "title": "Sales & Outreach Workflows",
+      "workflows": [
+        {
+          "title": "Pre-Meeting Research in 5 Minutes",
+          "description": "Walk into every call knowing more about them than they expect. It's borderline creepy how effective this is.",
+          "prompt": "Research [company name] and [person's name, their role]. Find: 1) Company's recent news or announcements 2) Their biggest challenges right now based on industry trends 3) The person's career history and what they probably care about 4) One non-obvious connection point I can use to build rapport 5) Their likely objections to what I'm selling",
+          "tool": "Perplexity",
+          "toolUrl": "https://perplexity.ai"
+        },
+        {
+          "title": "Turn One Call Into 5 Referrals",
+          "description": "Every conversation should end with 'who else should I talk to?' Here's how to make that ask not awkward.",
+          "prompt": "I just had a great call with [person] about [topic]. Help me write a follow-up email that: 1) Thanks them specifically for [something they said] 2) Summarizes the value I can provide 3) Asks for 2-3 referrals in a way that's easy for them to say yes. Keep it under 100 words.",
+          "tool": "Claude",
+          "toolUrl": "https://claude.ai"
+        },
+        {
+          "title": "Objection Handling Cheat Sheet",
+          "description": "You'll hear the same 5 objections from every prospect. Prepare your responses before you're on the spot.",
+          "prompt": "I'm selling [product/service] to [customer type]. What are the 10 most likely objections I'll hear? For each one, give me: 1) The objection as they'll phrase it 2) What they're really worried about underneath 3) A response that addresses the real concern 4) A question to ask that moves the conversation forward",
+          "tool": "Claude",
+          "toolUrl": "https://claude.ai"
+        }
+      ]
+    },
+    "quickHits": [
+      "Microsoft: Copilot can now build entire PowerPoint decks from a single prompt. Finally.",
+      "Notion: Calendar AI automatically schedules your week based on task priorities. Beta rolling out.",
+      "Stripe: Launched AI-powered fraud detection for startups. Free for <$100k volume.",
+      "Y Combinator: Open applications close March 30. AI is a 'plus' but not required."
+    ],
+    "nextWeek": "We're diving into Content Creation - how to pump out blog posts, videos, and social content like a full marketing team. I'll share the exact workflow I use to create a week's worth of content in 90 minutes. Spoiler: it involves zero creative blocks.",
+    "founderSpotlight": {
+      "enabled": true,
+      "startupName": "Pitch Practice AI",
+      "oneLinePitch": "Practice your investor pitch with AI investors who've heard 1000 pitches. Get brutal feedback before the real thing.",
+      "ctaText": "Try for free",
+      "ctaUrl": "https://pitchpractice.ai"
+    }
+  }
+}

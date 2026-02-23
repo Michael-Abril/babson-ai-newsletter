@@ -4,6 +4,8 @@
 
 Your weekly cheat code for using AI better than 99% of people.
 
+> **[Subscribe to The AI Pulse →](SIGNUP_LINK)** — Free weekly AI newsletter
+
 Every Friday, The AI Pulse breaks down exactly what's happening in AI and what Babson students should actually do about it. No jargon, no fluff. Just the stuff that gives you a real competitive edge as an entrepreneur.
 
 ---
@@ -52,3 +54,11 @@ Every issue spotlights tools you can claim for free with your Babson email. Over
 The entire newsletter is automated. Every Friday at 10:00 AM EST, AI searches the web for the week's most important developments, generates content through a Babson entrepreneurship lens, builds a clean HTML email, and delivers it straight to your inbox.
 
 No manual work. Just relevant AI knowledge, every single week.
+
+---
+
+## Subscribe
+
+**[→ Subscribe to The AI Pulse](SIGNUP_LINK)**
+
+Free. Every Friday. No spam. Unsubscribe anytime.

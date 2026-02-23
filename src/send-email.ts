@@ -73,3 +73,19 @@ export async function sendBroadcast(
 
   console.log(`Broadcast sent successfully - id: ${broadcast?.id}`);
 }
+
+// Aliases for multi-agent.ts compatibility
+export const sendTestEmail = async (to: string, subject: string, html: string): Promise<void> => {
+  await sendToRecipient(html, subject, to);
+};
+
+export const broadcastToAudience = async (audienceId: string, subject: string, html: string): Promise<void> => {
+  // Override env var temporarily for this call
+  const originalAudienceId = process.env.RESEND_AUDIENCE_ID;
+  process.env.RESEND_AUDIENCE_ID = audienceId;
+  try {
+    await sendBroadcast(html, subject);
+  } finally {
+    process.env.RESEND_AUDIENCE_ID = originalAudienceId;
+  }
+};

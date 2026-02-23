@@ -7,7 +7,13 @@
     "preview": "cross-env MODE=preview tsx src/index.ts",
     "test-send": "cross-env MODE=test tsx src/index.ts",
     "send": "cross-env MODE=send tsx src/index.ts",
-    "build": "tsc --noEmit"
+    "multi-agent:preview": "cross-env MODE=preview tsx src/multi-agent.ts",
+    "multi-agent:test": "cross-env MODE=test tsx src/multi-agent.ts",
+    "multi-agent:send": "cross-env MODE=send tsx src/multi-agent.ts",
+    "validate:links": "tsx src/validate-links.ts",
+    "audit": "tsx src/agents/audit-orchestrator.ts",
+    "build": "tsc --noEmit",
+    "preflight": "npm run validate:links && npm run build"
   },
   "keywords": [
     "ai",

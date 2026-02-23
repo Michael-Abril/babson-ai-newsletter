@@ -1,0 +1,393 @@
+{
+  "meta": {
+    "name": "The AI Pulse - World-Class Newsletter Audit Framework",
+    "version": "1.0",
+    "targetGrade": "A+ (95+/100 in all categories)",
+    "philosophy": "Every aspect must be 10/10. A chain is only as strong as its weakest link."
+  },
+  "auditCategories": [
+    {
+      "id": "content",
+      "name": "Content Quality",
+      "weight": 25,
+      "subcategories": [
+        {
+          "id": "content-news",
+          "name": "News Selection & Curation",
+          "weight": 20,
+          "criteria": [
+            {"item": "Stories are from the past 7 days (freshness)", "maxScore": 10},
+            {"item": "Mix of story types (launches, funding, tools, research)", "maxScore": 10},
+            {"item": "No obvious stories everyone already covered", "maxScore": 10},
+            {"item": "All sources are credible and verifiable", "maxScore": 10},
+            {"item": "Balance of big company news + startup/tool news", "maxScore": 10}
+          ]
+        },
+        {
+          "id": "content-writing",
+          "name": "Writing Quality & Voice",
+          "weight": 25,
+          "criteria": [
+            {"item": "Zero banned AI words (meticulous, leverage, paradigm, etc.)", "maxScore": 10},
+            {"item": "Zero em dashes (— replaced with comma/period/colon)", "maxScore": 10},
+            {"item": "Contractions used consistently (don't, can't, it's)", "maxScore": 10},
+            {"item": "Sentence length variety (3-5 words mixed with longer)", "maxScore": 10},
+            {"item": "Personality markers present (Look, Real talk, So, And, But)", "maxScore": 10},
+            {"item": "Direct opinions expressed (this is huge, overhyped, worth it)", "maxScore": 10},
+            {"item": "Second person address (you, your) used throughout", "maxScore": 10},
+            {"item": "Would Mikey actually say this? (authenticity gut check)", "maxScore": 10}
+          ]
+        },
+        {
+          "id": "content-actionability",
+          "name": "Actionability & Usefulness",
+          "weight": 25,
+          "criteria": [
+            {"item": "Every section has a clear 'so what' for the reader", "maxScore": 10},
+            {"item": "Specific next steps readers can take THIS WEEK", "maxScore": 10},
+            {"item": "Time estimates provided (e.g., '15 minutes')", "maxScore": 10},
+            {"item": "Difficulty level appropriate for college students", "maxScore": 10},
+            {"item": "No generic advice - everything is specific", "maxScore": 10}
+          ]
+        },
+        {
+          "id": "content-prompts",
+          "name": "Prompt Quality",
+          "weight": 20,
+          "criteria": [
+            {"item": "Every framework step has a copy-paste prompt", "maxScore": 10},
+            {"item": "Every workflow has a copy-paste prompt", "maxScore": 10},
+            {"item": "Prompts use clear placeholders [YOUR IDEA], [COMPANY]", "maxScore": 10},
+            {"item": "Prompts are specific enough to get useful output", "maxScore": 10},
+            {"item": "Prompts tested and verified to work", "maxScore": 10},
+            {"item": "Prompts feel like insider secrets, not obvious", "maxScore": 10}
+          ]
+        },
+        {
+          "id": "content-tools",
+          "name": "Tool Recommendations",
+          "weight": 10,
+          "criteria": [
+            {"item": "All tools are actually free or have free tiers", "maxScore": 10},
+            {"item": "Tool URLs are valid and working", "maxScore": 10},
+            {"item": "Claim steps are accurate and current", "maxScore": 10},
+            {"item": "Tools are appropriate for student skill level", "maxScore": 10},
+            {"item": "Tool selection rotates and doesn't repeat too often", "maxScore": 10}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "audience",
+      "name": "Audience Fit",
+      "weight": 20,
+      "subcategories": [
+        {
+          "id": "audience-babson",
+          "name": "Babson Student Relevance",
+          "weight": 35,
+          "criteria": [
+            {"item": "References real Babson programs (FME, B-Lab, Blank Center)", "maxScore": 10},
+            {"item": "Scenarios match Babson student experience", "maxScore": 10},
+            {"item": "Timing aligns with academic calendar when relevant", "maxScore": 10},
+            {"item": "Entrepreneurship focus throughout (not just tech)", "maxScore": 10},
+            {"item": "Peer-to-peer tone (student to student)", "maxScore": 10}
+          ]
+        },
+        {
+          "id": "audience-entrepreneur",
+          "name": "Entrepreneur Angle",
+          "weight": 30,
+          "criteria": [
+            {"item": "Every story tied to startup/business application", "maxScore": 10},
+            {"item": "Focus on revenue, customers, and growth", "maxScore": 10},
+            {"item": "Real founder problems addressed (funding, sales, product)", "maxScore": 10},
+            {"item": "Competitive advantage thinking embedded", "maxScore": 10},
+            {"item": "Urgency and opportunity framing", "maxScore": 10}
+          ]
+        },
+        {
+          "id": "audience-skill",
+          "name": "Skill Level Appropriateness",
+          "weight": 20,
+          "criteria": [
+            {"item": "No assumed technical knowledge beyond basics", "maxScore": 10},
+            {"item": "Jargon explained when used", "maxScore": 10},
+            {"item": "Progressive complexity (basics to advanced)", "maxScore": 10},
+            {"item": "Non-technical founders can follow along", "maxScore": 10}
+          ]
+        },
+        {
+          "id": "audience-budget",
+          "name": "Budget Consciousness",
+          "weight": 15,
+          "criteria": [
+            {"item": "Free tools prioritized over paid", "maxScore": 10},
+            {"item": "Student discounts highlighted", "maxScore": 10},
+            {"item": "Bootstrap mentality evident", "maxScore": 10},
+            {"item": "ROI thinking for any paid recommendations", "maxScore": 10}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "technical",
+      "name": "Technical Execution",
+      "weight": 15,
+      "subcategories": [
+        {
+          "id": "technical-deliverability",
+          "name": "Email Deliverability",
+          "weight": 30,
+          "criteria": [
+            {"item": "HTML size under 102KB", "maxScore": 10},
+            {"item": "No spam trigger words in subject/body", "maxScore": 10},
+            {"item": "Text-to-image ratio appropriate", "maxScore": 10},
+            {"item": "Proper FROM name and reply-to", "maxScore": 10},
+            {"item": "Unsubscribe link present and working", "maxScore": 10},
+            {"item": "SPF/DKIM/DMARC configured correctly", "maxScore": 10}
+          ]
+        },
+        {
+          "id": "technical-mobile",
+          "name": "Mobile Responsiveness",
+          "weight": 25,
+          "criteria": [
+            {"item": "Readable on iPhone without zooming", "maxScore": 10},
+            {"item": "Buttons/links have adequate tap targets (44px+)", "maxScore": 10},
+            {"item": "Images scale properly", "maxScore": 10},
+            {"item": "Single column layout on mobile", "maxScore": 10},
+            {"item": "Font size readable (16px+ for body)", "maxScore": 10}
+          ]
+        },
+        {
+          "id": "technical-links",
+          "name": "Link Validity",
+          "weight": 25,
+          "criteria": [
+            {"item": "All URLs return 200 status", "maxScore": 10},
+            {"item": "No broken tool links", "maxScore": 10},
+            {"item": "Source URLs go to actual articles", "maxScore": 10},
+            {"item": "UTM parameters present for tracking", "maxScore": 10}
+          ]
+        },
+        {
+          "id": "technical-accessibility",
+          "name": "Accessibility",
+          "weight": 20,
+          "criteria": [
+            {"item": "Alt text on all images", "maxScore": 10},
+            {"item": "Sufficient color contrast (4.5:1 ratio)", "maxScore": 10},
+            {"item": "Logical reading order", "maxScore": 10},
+            {"item": "Links have descriptive text (not 'click here')", "maxScore": 10}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "design",
+      "name": "Design & UX",
+      "weight": 15,
+      "subcategories": [
+        {
+          "id": "design-hierarchy",
+          "name": "Visual Hierarchy",
+          "weight": 30,
+          "criteria": [
+            {"item": "Clear section separation", "maxScore": 10},
+            {"item": "Headlines stand out from body text", "maxScore": 10},
+            {"item": "Most important info first (inverted pyramid)", "maxScore": 10},
+            {"item": "Consistent spacing and padding", "maxScore": 10}
+          ]
+        },
+        {
+          "id": "design-readability",
+          "name": "Readability",
+          "weight": 25,
+          "criteria": [
+            {"item": "Line length optimal (50-75 characters)", "maxScore": 10},
+            {"item": "Adequate line height (1.5-1.6)", "maxScore": 10},
+            {"item": "Paragraphs short (3-4 sentences max)", "maxScore": 10},
+            {"item": "Bullet points used for lists", "maxScore": 10},
+            {"item": "White space used effectively", "maxScore": 10}
+          ]
+        },
+        {
+          "id": "design-brand",
+          "name": "Brand Consistency",
+          "weight": 25,
+          "criteria": [
+            {"item": "Babson green (#006644) used correctly", "maxScore": 10},
+            {"item": "Font choices consistent throughout", "maxScore": 10},
+            {"item": "Logo/header matches brand guidelines", "maxScore": 10},
+            {"item": "Tone matches visual style", "maxScore": 10}
+          ]
+        },
+        {
+          "id": "design-scannability",
+          "name": "Scannability",
+          "weight": 20,
+          "criteria": [
+            {"item": "Can get value from 30-second scan", "maxScore": 10},
+            {"item": "Key info bolded or highlighted", "maxScore": 10},
+            {"item": "Section headers are descriptive", "maxScore": 10},
+            {"item": "Quick Hits section truly quick", "maxScore": 10}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "engagement",
+      "name": "Engagement",
+      "weight": 15,
+      "subcategories": [
+        {
+          "id": "engagement-subject",
+          "name": "Subject Line Effectiveness",
+          "weight": 30,
+          "criteria": [
+            {"item": "Creates curiosity gap", "maxScore": 10},
+            {"item": "Front-loads interesting part (first 35 chars)", "maxScore": 10},
+            {"item": "No clickbait that doesn't deliver", "maxScore": 10},
+            {"item": "Specific over generic", "maxScore": 10},
+            {"item": "Would stand out in crowded inbox", "maxScore": 10}
+          ]
+        },
+        {
+          "id": "engagement-hook",
+          "name": "Opening Hook",
+          "weight": 25,
+          "criteria": [
+            {"item": "First sentence grabs attention", "maxScore": 10},
+            {"item": "Immediately clear why reader should care", "maxScore": 10},
+            {"item": "No boring intros or throat-clearing", "maxScore": 10}
+          ]
+        },
+        {
+          "id": "engagement-cta",
+          "name": "CTA Clarity",
+          "weight": 25,
+          "criteria": [
+            {"item": "Clear primary action in each section", "maxScore": 10},
+            {"item": "CTAs use action verbs", "maxScore": 10},
+            {"item": "Not overwhelming with too many CTAs", "maxScore": 10},
+            {"item": "Final CTA creates anticipation for next week", "maxScore": 10}
+          ]
+        },
+        {
+          "id": "engagement-shareability",
+          "name": "Shareability",
+          "weight": 20,
+          "criteria": [
+            {"item": "Contains at least one 'holy shit' moment", "maxScore": 10},
+            {"item": "Easy to screenshot and share excerpts", "maxScore": 10},
+            {"item": "Forward-to-a-friend worthy", "maxScore": 10},
+            {"item": "Social proof elements included", "maxScore": 10}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "growth",
+      "name": "Growth & Retention",
+      "weight": 5,
+      "subcategories": [
+        {
+          "id": "growth-value",
+          "name": "Value Proposition",
+          "weight": 40,
+          "criteria": [
+            {"item": "Clear why this newsletter vs others", "maxScore": 10},
+            {"item": "Unique angle (Babson + AI + entrepreneurs)", "maxScore": 10},
+            {"item": "Delivers on tagline promise every issue", "maxScore": 10}
+          ]
+        },
+        {
+          "id": "growth-consistency",
+          "name": "Consistency",
+          "weight": 30,
+          "criteria": [
+            {"item": "Same day/time every week", "maxScore": 10},
+            {"item": "Predictable structure readers can rely on", "maxScore": 10},
+            {"item": "Quality doesn't vary week to week", "maxScore": 10}
+          ]
+        },
+        {
+          "id": "growth-community",
+          "name": "Community Building",
+          "weight": 30,
+          "criteria": [
+            {"item": "Founder Spotlight features real students", "maxScore": 10},
+            {"item": "Encourages reader replies/feedback", "maxScore": 10},
+            {"item": "Creates insider/belonging feeling", "maxScore": 10}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "legal",
+      "name": "Legal & Ethics",
+      "weight": 5,
+      "subcategories": [
+        {
+          "id": "legal-attribution",
+          "name": "Attribution & Copyright",
+          "weight": 40,
+          "criteria": [
+            {"item": "All sources properly attributed", "maxScore": 10},
+            {"item": "No plagiarized content", "maxScore": 10},
+            {"item": "Images licensed or original", "maxScore": 10}
+          ]
+        },
+        {
+          "id": "legal-privacy",
+          "name": "Privacy & Compliance",
+          "weight": 30,
+          "criteria": [
+            {"item": "CAN-SPAM compliant", "maxScore": 10},
+            {"item": "Physical address included", "maxScore": 10},
+            {"item": "Clear unsubscribe option", "maxScore": 10}
+          ]
+        },
+        {
+          "id": "legal-disclosure",
+          "name": "Disclosures",
+          "weight": 30,
+          "criteria": [
+            {"item": "'Researched with AI' disclosure present", "maxScore": 10},
+            {"item": "Affiliate links disclosed if any", "maxScore": 10},
+            {"item": "Sponsored content clearly marked if any", "maxScore": 10}
+          ]
+        }
+      ]
+    }
+  ],
+  "gradingScale": {
+    "A+": {"min": 95, "max": 100, "description": "World-class. Could win newsletter awards."},
+    "A": {"min": 90, "max": 94, "description": "Excellent. Top 5% of newsletters."},
+    "A-": {"min": 87, "max": 89, "description": "Great. Minor polish needed."},
+    "B+": {"min": 83, "max": 86, "description": "Good. Several areas need improvement."},
+    "B": {"min": 80, "max": 82, "description": "Acceptable. Significant work needed."},
+    "B-": {"min": 77, "max": 79, "description": "Below standard. Major issues."},
+    "C": {"min": 70, "max": 76, "description": "Failing our standards. Rebuild required."},
+    "F": {"min": 0, "max": 69, "description": "Do not send. Start over."}
+  },
+  "minimumStandards": {
+    "mustPass": [
+      "Zero banned AI words",
+      "Zero em dashes",
+      "All URLs return 200",
+      "HTML under 102KB",
+      "Unsubscribe link works",
+      "Every prompt is copy-paste ready",
+      "Mobile readable without zoom"
+    ],
+    "autoFail": [
+      "Any broken links",
+      "Missing unsubscribe",
+      "Plagiarized content",
+      "Subject line over 60 chars",
+      "Send on wrong day/time"
+    ]
+  }
+}

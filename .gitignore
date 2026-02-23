@@ -7,3 +7,9 @@ output/
 
 # Student email lists (PII - never commit)
 config/students.csv
+
+# Local IDE settings
+.claude/
+
+# Windows artifacts
+nul

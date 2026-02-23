@@ -1,74 +1,502 @@
 [
   {
-    "name": "Cursor Pro",
-    "value": "$240/year",
-    "duration": "1 year free",
-    "description": "AI-powered code editor. Describe what you want in plain English and it writes the code. Reads your entire project, debugs errors, generates features. This is what vibe coding runs on — students at Stanford, MIT, and Harvard use it to build startups without traditional dev teams.",
-    "claimSteps": "Download from cursor.com → Sign up with your @babson.edu email → Settings → Subscription → Student Plan → Verify → Instant activation.",
-    "url": "https://cursor.com/students",
-    "category": "coding"
+    "name": "Claude",
+    "value": "Free tier available",
+    "duration": "Always free",
+    "description": "Anthropic's Claude Sonnet is free for everyone. Best for complex reasoning, coding, and long documents. Can work across browser tabs with computer use.",
+    "claimSteps": "Go to claude.ai and sign up. Free tier includes Sonnet with no waitlist.",
+    "url": "https://claude.ai",
+    "category": "general AI",
+    "weeklyTheme": "AI Fundamentals"
   },
   {
-    "name": "Google Gemini AI Pro",
+    "name": "Google Gemini Pro",
     "value": "$240/year",
     "duration": "1 year free",
-    "description": "Google's most advanced AI plus 2TB Google Drive storage. Advanced reasoning, code generation, real-time web browsing, and deep integration with the Google ecosystem. Sign up by April 30, 2026.",
-    "claimSteps": "Go to gemini.google/students → Verify student status through SheerID with your personal Gmail → Subscribe through Google Play Store → Instant access.",
+    "description": "Google's most advanced AI plus 2TB Drive storage. Real-time web browsing, code generation, deep Google ecosystem integration.",
+    "claimSteps": "Go to gemini.google/students. Verify through SheerID with your personal Gmail. Sign up by April 30, 2026.",
     "url": "https://gemini.google/students/",
-    "category": "general AI"
+    "category": "general AI",
+    "weeklyTheme": "AI Fundamentals"
+  },
+  {
+    "name": "ChatGPT Plus",
+    "value": "$200/year",
+    "duration": "Free months + 20% ongoing",
+    "description": "OpenAI's premium tier with full GPT access, image generation, data analysis, and file uploads. 20% student discount continues after trial.",
+    "claimSteps": "Go to chatgpt.com/students. Sign up with your .edu email. Verify through SheerID.",
+    "url": "https://chatgpt.com/students",
+    "category": "general AI",
+    "weeklyTheme": "AI Fundamentals"
   },
   {
     "name": "Perplexity Pro",
     "value": "$200/year",
     "duration": "1 year free",
-    "description": "AI-powered research engine that replaces hours of Googling. Direct answers with real citations from trusted sources. Multi-model access including GPT and Claude. No credit card required.",
-    "claimSteps": "Go to perplexity.ai → Click Upgrade → Select 'Educate' plan → Sign in with your .edu email → Verify → No credit card required.",
+    "description": "AI research engine that replaces hours of Googling. Direct answers with real citations. Multi-model access. No credit card required.",
+    "claimSteps": "Go to perplexity.ai. Click Upgrade. Select Educate plan. Sign in with your .edu email.",
     "url": "https://perplexity.ai",
-    "category": "research"
-  },
-  {
-    "name": "GitHub Copilot",
-    "value": "$100/year",
-    "duration": "Free while enrolled",
-    "description": "AI pair programmer that suggests code as you type. Works inside VS Code, JetBrains, and other editors. Also unlocks dozens of other free developer tools through the Student Developer Pack.",
-    "claimSteps": "Go to education.github.com/pack → Click 'Get your Pack' → Sign in with GitHub → Select Student → Upload proof of enrollment → Instant access.",
-    "url": "https://education.github.com/pack",
-    "category": "coding"
-  },
-  {
-    "name": "ChatGPT Plus",
-    "value": "$200/year",
-    "duration": "Free months + 20% ongoing discount",
-    "description": "OpenAI's premium tier with full GPT access, faster responses, image generation, advanced data analysis, and file uploads. The 20% student discount continues after the free trial.",
-    "claimSteps": "Go to chatgpt.com/students → Sign up with your .edu email → Verify through SheerID → Free months activate automatically.",
-    "url": "https://chatgpt.com/students",
-    "category": "general AI"
+    "category": "research",
+    "weeklyTheme": "Market Research & Validation"
   },
   {
     "name": "NotebookLM",
     "value": "Free for everyone",
     "duration": "Always free",
-    "description": "Upload your lecture notes, PDFs, and YouTube transcripts. AI becomes an expert on YOUR materials. Creates study guides, podcast-style audio summaries, and practice quizzes from your actual class content.",
-    "claimSteps": "Go to notebooklm.google.com → Sign in with any Google account → Upload your materials → Start asking questions.",
+    "description": "Upload lecture notes, PDFs, YouTube transcripts. AI becomes an expert on YOUR materials. Creates study guides and podcast-style audio summaries.",
+    "claimSteps": "Go to notebooklm.google.com. Sign in with any Google account. Upload your materials.",
     "url": "https://notebooklm.google.com",
-    "category": "studying"
+    "category": "studying",
+    "weeklyTheme": "Learning & Research"
   },
   {
-    "name": "Microsoft 365 Education + Copilot",
+    "name": "Cursor Pro",
+    "value": "$240/year",
+    "duration": "1 year free",
+    "description": "AI-powered code editor. Describe what you want in plain English and it writes the code. Reads your entire project, debugs errors.",
+    "claimSteps": "Download from cursor.com. Sign up with your @babson.edu email. Settings > Subscription > Student Plan.",
+    "url": "https://cursor.com/students",
+    "category": "coding",
+    "weeklyTheme": "Building Your MVP"
+  },
+  {
+    "name": "GitHub Copilot",
     "value": "$100/year",
     "duration": "Free while enrolled",
-    "description": "Full Microsoft Office suite plus Copilot AI features in Word, Excel, PowerPoint, and Outlook. AI-powered writing assistance, data analysis, and presentation generation.",
-    "claimSteps": "Check if Babson provides this through your school account. If not, go to microsoft.com/education → Verify with your .edu email.",
-    "url": "https://www.microsoft.com/en-us/education",
-    "category": "productivity"
+    "description": "AI pair programmer that suggests code as you type. Works in VS Code, JetBrains. Also unlocks dozens of other free developer tools.",
+    "claimSteps": "Go to education.github.com/pack. Click Get your Pack. Sign in with GitHub. Upload proof of enrollment.",
+    "url": "https://education.github.com/pack",
+    "category": "coding",
+    "weeklyTheme": "Building Your MVP"
   },
   {
-    "name": "Canva for Education",
+    "name": "Replit",
+    "value": "Free tier available",
+    "duration": "Always free",
+    "description": "Browser-based IDE with AI assistant. Build and deploy apps without setup. AI explains code step-by-step. Great for learning.",
+    "claimSteps": "Go to replit.com. Sign up free. Free tier includes autocomplete and AI explanations in public apps.",
+    "url": "https://replit.com",
+    "category": "coding",
+    "weeklyTheme": "Building Your MVP"
+  },
+  {
+    "name": "Codeium",
+    "value": "Free forever",
+    "duration": "Always free",
+    "description": "Completely free AI code completion. Unlimited usage for individuals. Rivals GitHub Copilot without the cost.",
+    "claimSteps": "Go to codeium.com. Sign up free. Install extension for VS Code or your editor.",
+    "url": "https://codeium.com",
+    "category": "coding",
+    "weeklyTheme": "Building Your MVP"
+  },
+  {
+    "name": "Canva Pro",
     "value": "$130/year",
     "duration": "Free while enrolled",
-    "description": "Full Canva Pro with Magic Studio AI. Turn bullet points into full presentation decks in seconds. AI image generation, background removal, and brand kit management.",
-    "claimSteps": "Go to canva.com/education → Verify your student status → Full Pro access activated.",
+    "description": "Full Canva Pro with Magic Studio AI. Turn bullet points into presentation decks. AI image generation, background removal, brand kit.",
+    "claimSteps": "Go to canva.com/education. Verify your student status. Full Pro access activated.",
     "url": "https://www.canva.com/education/",
-    "category": "design"
+    "category": "design",
+    "weeklyTheme": "Branding & Visual Identity"
+  },
+  {
+    "name": "Figma",
+    "value": "$180/year",
+    "duration": "Free for students",
+    "description": "Professional design tool with AI features. Create app mockups, pitch deck graphics, prototypes. Industry standard for startups.",
+    "claimSteps": "Go to figma.com/education. Apply with your .edu email. Full Figma Pro features for free.",
+    "url": "https://www.figma.com/education/",
+    "category": "design",
+    "weeklyTheme": "Branding & Visual Identity"
+  },
+  {
+    "name": "Leonardo.ai",
+    "value": "Free tier available",
+    "duration": "Always free",
+    "description": "AI image generation with 150 free daily credits. Best for product mockups, concept art, marketing visuals. Professional quality output.",
+    "claimSteps": "Go to leonardo.ai. Sign up free. 150 fast tokens daily. Great for social media graphics.",
+    "url": "https://leonardo.ai",
+    "category": "image generation",
+    "weeklyTheme": "Branding & Visual Identity"
+  },
+  {
+    "name": "Ideogram",
+    "value": "Free tier available",
+    "duration": "Always free",
+    "description": "AI image generation with perfect text rendering. Makes posters, banners, social media designs with clear, readable text.",
+    "claimSteps": "Go to ideogram.ai. Sign up free. 10 slow credits per week. Best for text-heavy graphics.",
+    "url": "https://ideogram.ai",
+    "category": "image generation",
+    "weeklyTheme": "Branding & Visual Identity"
+  },
+  {
+    "name": "Bing Image Creator",
+    "value": "Free for everyone",
+    "duration": "Always free",
+    "description": "DALL-E 3 powered image generation. 100 credits monthly for up to 400 images. No signup needed if you have Microsoft account.",
+    "claimSteps": "Go to bing.com/images/create. Sign in with Microsoft account. Start creating immediately.",
+    "url": "https://www.bing.com/images/create",
+    "category": "image generation",
+    "weeklyTheme": "Content Creation"
+  },
+  {
+    "name": "Gamma",
+    "value": "Free tier available",
+    "duration": "Always free",
+    "description": "AI presentation builder. Paste your notes, get a polished deck in 60 seconds. Better than PowerPoint for quick investor decks.",
+    "claimSteps": "Go to gamma.app. Sign up with any email. Free tier gives 400 AI credits (about 40 presentations).",
+    "url": "https://gamma.app",
+    "category": "presentations",
+    "weeklyTheme": "Pitching & Fundraising"
+  },
+  {
+    "name": "Beautiful.ai",
+    "value": "Free tier available",
+    "duration": "Always free",
+    "description": "AI presentation maker with smart templates. Designs adapt automatically as you add content. Export to PowerPoint. Great for investor decks.",
+    "claimSteps": "Go to beautiful.ai. Sign up free. Free tier includes basic features and templates.",
+    "url": "https://www.beautiful.ai",
+    "category": "presentations",
+    "weeklyTheme": "Pitching & Fundraising"
+  },
+  {
+    "name": "Microsoft 365 + Copilot",
+    "value": "$100/year",
+    "duration": "Free while enrolled",
+    "description": "Full Microsoft Office suite plus Copilot AI in Word, Excel, PowerPoint. AI-powered writing, data analysis, presentation generation.",
+    "claimSteps": "Check if Babson provides this. If not, go to microsoft.com/education and verify with your .edu email.",
+    "url": "https://www.microsoft.com/en-us/education",
+    "category": "productivity",
+    "weeklyTheme": "Productivity & Operations"
+  },
+  {
+    "name": "Notion AI",
+    "value": "$120/year",
+    "duration": "Free with education plan",
+    "description": "AI writing assistant built into Notion. Summarizes notes, generates action items, writes first drafts. Works inside your workspace.",
+    "claimSteps": "Go to notion.so/students. Sign up with your .edu email. AI features included in free education plan.",
+    "url": "https://www.notion.so/students",
+    "category": "productivity",
+    "weeklyTheme": "Productivity & Operations"
+  },
+  {
+    "name": "Grammarly Premium",
+    "value": "$144/year",
+    "duration": "Free for students",
+    "description": "AI writing assistant beyond spell check. Tone detection, clarity improvements, plagiarism checker. Works everywhere you write.",
+    "claimSteps": "Check if Babson provides this. If not, go to grammarly.com/edu and verify with your .edu email.",
+    "url": "https://www.grammarly.com/edu",
+    "category": "writing",
+    "weeklyTheme": "Content Creation"
+  },
+  {
+    "name": "QuillBot",
+    "value": "Free tier available",
+    "duration": "Always free",
+    "description": "AI paraphrasing tool. Rephrases content into professional language. Free plan includes 2 paraphrasing modes, grammar checker, summarizer.",
+    "claimSteps": "Go to quillbot.com. Sign up free. Free plan supports 23 languages.",
+    "url": "https://quillbot.com",
+    "category": "writing",
+    "weeklyTheme": "Content Creation"
+  },
+  {
+    "name": "Jasper",
+    "value": "Free trial available",
+    "duration": "7-day free trial",
+    "description": "Professional AI copywriting for marketing, emails, ads. 50+ templates. Used by major brands. Great for sales outreach at scale.",
+    "claimSteps": "Go to jasper.ai. Sign up for 7-day free trial. No credit card for trial.",
+    "url": "https://www.jasper.ai",
+    "category": "copywriting",
+    "weeklyTheme": "Sales & Outreach"
+  },
+  {
+    "name": "Copy.ai",
+    "value": "Free tier available",
+    "duration": "Always free",
+    "description": "AI copywriting for product descriptions, emails, ads. Over 10 million users. 30+ email marketing templates included.",
+    "claimSteps": "Go to copy.ai. Sign up free. Limited free tier available.",
+    "url": "https://copy.ai",
+    "category": "copywriting",
+    "weeklyTheme": "Sales & Outreach"
+  },
+  {
+    "name": "Fathom",
+    "value": "Free forever",
+    "duration": "Always free",
+    "description": "Best free AI meeting notes. Unlimited recording on free tier. Auto-joins Zoom, Meet, Teams. Creates summaries and action items.",
+    "claimSteps": "Go to fathom.video. Sign up free. Connect your calendar. Unlimited meetings recorded.",
+    "url": "https://fathom.video",
+    "category": "meetings",
+    "weeklyTheme": "Productivity & Operations"
+  },
+  {
+    "name": "Otter.ai",
+    "value": "$100/year",
+    "duration": "Free tier available",
+    "description": "AI meeting transcription with 94% accuracy. 300 minutes per month free. Creates summaries and action items automatically.",
+    "claimSteps": "Go to otter.ai. Sign up free. Connect your calendar. 300 minutes monthly.",
+    "url": "https://otter.ai",
+    "category": "meetings",
+    "weeklyTheme": "Productivity & Operations"
+  },
+  {
+    "name": "Fireflies.ai",
+    "value": "Free tier available",
+    "duration": "Always free",
+    "description": "AI meeting assistant with 800 free minutes monthly. 50+ integrations including Slack, Notion, CRMs. Supports 100+ languages.",
+    "claimSteps": "Go to fireflies.ai. Sign up free. 800 transcription minutes monthly with unlimited storage.",
+    "url": "https://fireflies.ai",
+    "category": "meetings",
+    "weeklyTheme": "Productivity & Operations"
+  },
+  {
+    "name": "Loom",
+    "value": "$150/year",
+    "duration": "Free for education",
+    "description": "Quick video recording for async communication. AI generates titles, summaries, chapters. Great for investor updates and team demos.",
+    "claimSteps": "Go to loom.com/education. Verify with your .edu email. Full Loom Business features unlocked.",
+    "url": "https://www.loom.com/education",
+    "category": "video",
+    "weeklyTheme": "Content Creation"
+  },
+  {
+    "name": "Descript",
+    "value": "$180/year",
+    "duration": "Free tier available",
+    "description": "Edit video by editing text. AI removes filler words, creates transcripts, clones your voice. Used by podcasters and creators.",
+    "claimSteps": "Go to descript.com. Sign up free. 1 hour transcription per month. Great for podcast projects.",
+    "url": "https://www.descript.com",
+    "category": "video/audio",
+    "weeklyTheme": "Content Creation"
+  },
+  {
+    "name": "CapCut",
+    "value": "Free tier available",
+    "duration": "Always free",
+    "description": "Best free video editor for TikTok and Reels. AI auto captions, background removal, text-to-video. Mobile and desktop.",
+    "claimSteps": "Download CapCut from capcut.com. Sign up free. Essential features free including 1080p export.",
+    "url": "https://www.capcut.com",
+    "category": "video",
+    "weeklyTheme": "Social Media & Marketing"
+  },
+  {
+    "name": "Pika Labs",
+    "value": "Free tier available",
+    "duration": "Always free",
+    "description": "AI video generation with 30 daily credits. Text-to-video and image-to-video. Best free AI for social media video content.",
+    "claimSteps": "Go to pika.art. Sign up free. 30 credits daily. Great for product demos and ads.",
+    "url": "https://pika.art",
+    "category": "video",
+    "weeklyTheme": "Social Media & Marketing"
+  },
+  {
+    "name": "Eleven Labs",
+    "value": "Free tier available",
+    "duration": "Always free",
+    "description": "AI voice cloning and text-to-speech. Clone your voice in 30 seconds. 10,000 free characters monthly (about 10 minutes audio).",
+    "claimSteps": "Go to elevenlabs.io. Sign up free. 10,000 characters per month.",
+    "url": "https://elevenlabs.io",
+    "category": "audio",
+    "weeklyTheme": "Content Creation"
+  },
+  {
+    "name": "Zapier",
+    "value": "$240/year",
+    "duration": "Free tier available",
+    "description": "Connect apps and automate workflows without code. When X happens, do Y. 100 free tasks per month.",
+    "claimSteps": "Go to zapier.com. Sign up free. 100 tasks monthly. Enough for basic startup workflows.",
+    "url": "https://zapier.com",
+    "category": "automation",
+    "weeklyTheme": "Automation & Scale"
+  },
+  {
+    "name": "Make (Integromat)",
+    "value": "$108/year",
+    "duration": "Free tier available",
+    "description": "Visual automation builder, more powerful than Zapier for complex workflows. 1000 free operations per month.",
+    "claimSteps": "Go to make.com. Sign up free. 1000 operations monthly.",
+    "url": "https://www.make.com",
+    "category": "automation",
+    "weeklyTheme": "Automation & Scale"
+  },
+  {
+    "name": "n8n",
+    "value": "Free self-hosted",
+    "duration": "Always free",
+    "description": "Open-source workflow automation. Run unlimited automations on your own server. More powerful than Zapier, completely free.",
+    "claimSteps": "Go to n8n.io. Self-host free or use cloud free tier. No limits on self-hosted.",
+    "url": "https://n8n.io",
+    "category": "automation",
+    "weeklyTheme": "Automation & Scale"
+  },
+  {
+    "name": "Tidio",
+    "value": "Free tier available",
+    "duration": "Always free",
+    "description": "AI customer service chatbot. Lyro AI resolves up to 67% of queries automatically. Free forever plan for small teams.",
+    "claimSteps": "Go to tidio.com. Sign up free. Free plan includes basic AI chatbot functionality.",
+    "url": "https://tidio.com",
+    "category": "customer service",
+    "weeklyTheme": "Customer Service & Support"
+  },
+  {
+    "name": "Crisp",
+    "value": "Free tier available",
+    "duration": "Always free",
+    "description": "All-in-one customer messaging. Live chat, chatbot, knowledge base. Free for 2 team members.",
+    "claimSteps": "Go to crisp.chat. Sign up free. Free plan includes 2 seats and basic chatbot.",
+    "url": "https://crisp.chat",
+    "category": "customer service",
+    "weeklyTheme": "Customer Service & Support"
+  },
+  {
+    "name": "Julius AI",
+    "value": "Free tier available",
+    "duration": "Always free",
+    "description": "AI data analyst. Turn spreadsheets into charts and insights with no code. Supports Excel, CSV, Google Sheets. Student discount available.",
+    "claimSteps": "Go to julius.ai. Sign up free. 15 messages per month on free tier.",
+    "url": "https://julius.ai",
+    "category": "data analysis",
+    "weeklyTheme": "Data & Analytics"
+  },
+  {
+    "name": "FormulaBot",
+    "value": "Free tier available",
+    "duration": "Always free",
+    "description": "AI-powered Excel and Google Sheets assistant. Generate formulas, analyze data, create charts from plain English.",
+    "claimSteps": "Go to formulabot.com. Sign up free. Essential features at no cost.",
+    "url": "https://formulabot.com",
+    "category": "data analysis",
+    "weeklyTheme": "Data & Analytics"
+  },
+  {
+    "name": "Buffer",
+    "value": "Free tier available",
+    "duration": "Always free",
+    "description": "Social media scheduler with AI assistant. Free plan includes 3 channels, 10 posts per channel. AI generates ideas and rewrites.",
+    "claimSteps": "Go to buffer.com. Sign up free. Connect 3 social channels.",
+    "url": "https://buffer.com",
+    "category": "social media",
+    "weeklyTheme": "Social Media & Marketing"
+  },
+  {
+    "name": "Later",
+    "value": "Free tier available",
+    "duration": "Always free",
+    "description": "Visual social media planner. AI-powered captions and hashtag suggestions. Free plan includes 1 profile per network.",
+    "claimSteps": "Go to later.com. Sign up free. Connect Instagram, TikTok, LinkedIn.",
+    "url": "https://later.com",
+    "category": "social media",
+    "weeklyTheme": "Social Media & Marketing"
+  },
+  {
+    "name": "Bitrix24",
+    "value": "Free tier available",
+    "duration": "Always free",
+    "description": "Free CRM with AI. Organize contacts, automate workflows, track deals. Unlimited users on free tier.",
+    "claimSteps": "Go to bitrix24.com. Sign up free. Unlimited users, 5GB storage.",
+    "url": "https://bitrix24.com",
+    "category": "CRM",
+    "weeklyTheme": "Sales & Outreach"
+  },
+  {
+    "name": "HubSpot CRM",
+    "value": "Free forever",
+    "duration": "Always free",
+    "description": "Industry-standard CRM, completely free. Contact management, deal tracking, email templates. AI writing assistant included.",
+    "claimSteps": "Go to hubspot.com. Sign up free. Full CRM free forever.",
+    "url": "https://hubspot.com",
+    "category": "CRM",
+    "weeklyTheme": "Sales & Outreach"
+  },
+  {
+    "name": "Mailchimp",
+    "value": "Free tier available",
+    "duration": "Always free",
+    "description": "Email marketing with AI insights. Free up to 500 contacts. AI-driven campaign optimization and audience analysis.",
+    "claimSteps": "Go to mailchimp.com. Sign up free. 500 contacts, 1000 emails monthly.",
+    "url": "https://mailchimp.com",
+    "category": "email marketing",
+    "weeklyTheme": "Sales & Outreach"
+  },
+  {
+    "name": "Bizplanr",
+    "value": "Free for everyone",
+    "duration": "Always free",
+    "description": "AI business plan generator. Create investor-ready business plans in minutes. Completely free for all users.",
+    "claimSteps": "Go to bizplanr.ai. Start creating your business plan immediately. No signup required.",
+    "url": "https://bizplanr.ai",
+    "category": "business planning",
+    "weeklyTheme": "Pitching & Fundraising"
+  },
+  {
+    "name": "Wix ADI",
+    "value": "Free tier available",
+    "duration": "Always free",
+    "description": "AI website builder. Create professional sites without coding. AI generates design based on your answers.",
+    "claimSteps": "Go to wix.com. Start with AI Design Intelligence. Free plan includes Wix branding.",
+    "url": "https://wix.com",
+    "category": "website",
+    "weeklyTheme": "Building Your MVP"
+  },
+  {
+    "name": "Framer",
+    "value": "Free tier available",
+    "duration": "Always free",
+    "description": "AI-powered website builder for startups. Describe your site, AI builds it. Free plan includes Framer subdomain.",
+    "claimSteps": "Go to framer.com. Sign up free. AI generates your site from a prompt.",
+    "url": "https://framer.com",
+    "category": "website",
+    "weeklyTheme": "Building Your MVP"
+  },
+  {
+    "name": "Calendly",
+    "value": "Free tier available",
+    "duration": "Always free",
+    "description": "AI-enhanced scheduling. Share your link, people book meetings. Free plan includes 1 event type.",
+    "claimSteps": "Go to calendly.com. Sign up free. Connect your calendar.",
+    "url": "https://calendly.com",
+    "category": "scheduling",
+    "weeklyTheme": "Productivity & Operations"
+  },
+  {
+    "name": "Doodle",
+    "value": "Free tier available",
+    "duration": "Always free",
+    "description": "AI scheduling tool for group meetings. Find times that work for everyone automatically.",
+    "claimSteps": "Go to doodle.com. Sign up free. Create your first poll.",
+    "url": "https://doodle.com",
+    "category": "scheduling",
+    "weeklyTheme": "Productivity & Operations"
+  },
+  {
+    "name": "Playground AI",
+    "value": "Free tier available",
+    "duration": "Always free",
+    "description": "1000 free AI image generations per day. Multiple models including Stable Diffusion. Great for product mockups and marketing visuals.",
+    "claimSteps": "Go to playground.ai. Sign up free. 1000 images daily on free tier.",
+    "url": "https://playground.ai",
+    "category": "image generation",
+    "weeklyTheme": "Content Creation"
+  },
+  {
+    "name": "Khanmigo",
+    "value": "Free for everyone",
+    "duration": "Always free",
+    "description": "Khan Academy's AI tutor powered by GPT-4. Personalized learning, step-by-step explanations. Great for business math and finance.",
+    "claimSteps": "Go to khanacademy.org. Access Khanmigo for free. Works in all subjects.",
+    "url": "https://khanacademy.org",
+    "category": "learning",
+    "weeklyTheme": "Learning & Research"
+  },
+  {
+    "name": "Hemingway Editor",
+    "value": "Free for everyone",
+    "duration": "Always free",
+    "description": "Free writing editor that makes your writing bold and clear. Highlights complex sentences, passive voice, and readability issues.",
+    "claimSteps": "Go to hemingwayapp.com. Paste your text. No signup required. Free web version.",
+    "url": "https://hemingwayapp.com",
+    "category": "writing",
+    "weeklyTheme": "Content Creation"
   }
 ]
