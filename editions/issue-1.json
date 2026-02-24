@@ -1,0 +1,91 @@
+{
+  "subjectLine": "Claude just got scary good (and it's free)",
+  "weekTopic": "The AI Arms Race Heats Up",
+  "bigStory": {
+    "headline": "Anthropic Made Claude Sonnet 4.6 Free for Everyone",
+    "summary": "Anthropic just dropped Claude Sonnet 4.6 as the default for all users, free and paid. This isn't some watered-down version. It handles coding, long documents, research, and can literally fill out web forms and work across browser tabs. The gap between free and paid AI is basically gone.",
+    "sourceUrl": "https://www.anthropic.com/news"
+  },
+  "classConnection": "If you're still paying $20/month for ChatGPT Plus to do your FME business plan research, stop. Claude's free tier now does 90% of what you need. Save that money for customer acquisition.",
+  "threeThings": [
+    {
+      "headline": "xAI Built a 4-Agent Team That Actually Works",
+      "summary": "Grok 4.20 uses four specialized agents on every query. One coordinates, one fact-checks, one handles math and code, one does creative work. Early tests show hallucinations dropped 47-65%.",
+      "takeaway": "This is where AI is heading. Single models are out, agent teams are in. Start thinking about your startup problems as tasks you'd delegate to a team, not questions for one assistant.",
+      "sourceUrl": "https://llm-stats.com/ai-news"
+    },
+    {
+      "headline": "ElevenLabs Hit $11B Valuation on Voice AI",
+      "summary": "The voice cloning startup raised $500M at an $11B valuation. Sequoia led. They went from zero to unicorn in under three years.",
+      "takeaway": "Voice interfaces are the next platform shift. If your app still requires typing, you're building for 2023.",
+      "sourceUrl": "https://aifundingtracker.com/ai-startup-funding-news-today/"
+    },
+    {
+      "headline": "OpenAI Launched Frontier for Enterprise Agents",
+      "summary": "Companies can now build and deploy AI agents inside their existing infrastructure. Connects to third-party systems and handles complex workflows without custom engineering.",
+      "takeaway": "Enterprise AI agent tools are commoditizing fast. The opportunity isn't building another agent platform. It's being the expert who deploys these for specific industries.",
+      "sourceUrl": "https://releasebot.io/updates/openai"
+    }
+  ],
+  "founderFramework": {
+    "title": "Validate your startup idea this weekend",
+    "intro": "You don't need weeks of research. Here's the exact process, with prompts you can copy right now.",
+    "steps": [
+      {
+        "title": "Map your competition in 30 minutes",
+        "description": "Get a full competitive landscape without hours of Googling.",
+        "tool": "Claude",
+        "toolUrl": "https://claude.ai",
+        "prompt": "I'm building [DESCRIBE YOUR STARTUP IDEA IN ONE SENTENCE].\n\nFind the top 10 companies solving this problem. For each one, give me:\n1. Company name and website\n2. Their pricing model\n3. Who their target customer is\n4. Their biggest weakness based on user reviews\n5. What makes them different from the others\n\nFormat as a table I can reference."
+      },
+      {
+        "title": "Find real customer pain on Reddit",
+        "description": "Discover exactly how people describe their frustration. This becomes your landing page copy.",
+        "tool": "Perplexity",
+        "toolUrl": "https://perplexity.ai",
+        "prompt": "Search Reddit for complaints about [YOUR PROBLEM SPACE]. Find 15-20 posts where people are frustrated with current solutions.\n\nFor each post, extract:\n1. The exact phrase they used to describe their frustration\n2. What they wish existed\n3. How much they said they'd pay to fix it (if mentioned)\n\nGroup the complaints by theme."
+      },
+      {
+        "title": "Write your landing page and test it",
+        "description": "Turn those Reddit pain points into copy that converts.",
+        "tool": "Claude",
+        "toolUrl": "https://claude.ai",
+        "prompt": "I'm launching [YOUR STARTUP NAME] which solves [PROBLEM].\n\nHere are real complaints from potential customers:\n[PASTE YOUR REDDIT FINDINGS]\n\nWrite landing page copy that:\n1. Opens with the exact frustration they described\n2. Positions my solution as the obvious fix\n3. Includes 3 benefit bullets using their language\n4. Ends with a clear CTA to join the waitlist\n\nKeep it under 200 words. No corporate speak."
+      }
+    ],
+    "bottomLine": "Total cost: $50 in Google Ads and one weekend. You'll know more than founders who spent three months on market research."
+  },
+  "aiInBusiness": {
+    "title": "Three Workflows You Can Set Up Today",
+    "workflows": [
+      {
+        "title": "Investor meeting prep",
+        "description": "Stop going into meetings blind. Get personalized talking points in 5 minutes.",
+        "tool": "Claude",
+        "toolUrl": "https://claude.ai",
+        "prompt": "I have a meeting with [INVESTOR NAME] from [FIRM NAME].\n\nTheir LinkedIn: [PASTE LINKEDIN URL OR SUMMARY]\nTheir recent investments: [LIST ANY YOU KNOW]\n\nGive me:\n1. Three talking points specific to their investment thesis\n2. Two questions that show I did my research\n3. One thing to definitely avoid mentioning\n4. How to connect my startup to their portfolio"
+      },
+      {
+        "title": "Cold email that doesn't suck",
+        "description": "Write outreach that actually gets responses.",
+        "tool": "Claude",
+        "toolUrl": "https://claude.ai",
+        "prompt": "I need to email [PERSON'S NAME AND ROLE] at [COMPANY].\n\nContext about them: [PASTE ANY INFO YOU HAVE]\nWhat I want: [YOUR ASK - meeting, intro, feedback, etc]\nWhy they should care: [WHAT'S IN IT FOR THEM]\n\nWrite a cold email that:\n- Subject line under 5 words\n- Opening line that's NOT 'I hope this finds you well'\n- Gets to the ask in under 100 words\n- Sounds like a human, not a template"
+      },
+      {
+        "title": "Weekly competitor monitoring",
+        "description": "Know what your competitors are doing before your investors ask.",
+        "tool": "Perplexity",
+        "toolUrl": "https://perplexity.ai",
+        "prompt": "Search for news about these companies from the past 7 days:\n[COMPETITOR 1]\n[COMPETITOR 2]\n[COMPETITOR 3]\n\nFor each, find:\n1. Any product launches or updates\n2. Funding announcements\n3. New hires (especially executives)\n4. Press coverage or interviews\n\nSummarize what I need to know as a competitor."
+      }
+    ]
+  },
+  "quickHits": [
+    "Apple partnering with Google to rebuild Siri using Gemini. Paying $1B/year for it.",
+    "OpenAI testing ads in free ChatGPT. Paid tiers stay ad-free for now.",
+    "Adobe killing Animate on March 1. Shifting everything to AI products.",
+    "Meta embedded AI agents directly into Ads Manager. Handles testing and optimization automatically."
+  ],
+  "nextWeek": "Apple's March 4 event is dropping at least five products. I'll break down what actually matters for founders and what's just consumer noise."
+}

@@ -321,8 +321,6 @@ export function buildHTML(
                     </p>
                     <p style="font-family: ${SANS}; font-size: 11px; color: #999; margin: 8px 0 0 0;">
                       <a href="{{unsubscribe_url}}" target="_blank" style="color: #999; text-decoration: underline;">Unsubscribe</a>
-                      &nbsp;\u00b7&nbsp;
-                      <a href="https://theaipulse.substack.com/privacy" target="_blank" style="color: #999; text-decoration: underline;">Privacy Policy</a>
                     </p>
                   </td>
                 </tr>
