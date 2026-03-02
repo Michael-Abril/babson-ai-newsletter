@@ -149,6 +149,10 @@ export function buildHTML(
                       )
                       .join("")}
                     <p style="font-family: ${SANS}; color: ${GREEN}; font-size: 14px; font-weight: 600; margin: 4px 0 0 0;">${content.founderFramework.bottomLine}</p>
+                    ${content.founderFramework.personalNote ? `
+                    <div style="background-color: #faf9f7; border: 1px solid #e8e4df; padding: 16px 18px; margin: 18px 0 0 0; border-radius: 6px;">
+                      <p style="font-family: ${SANS}; font-size: 14px; color: ${DARK}; line-height: 1.65; margin: 0; white-space: pre-wrap;">${content.founderFramework.personalNote}</p>
+                    </div>` : ''}
                   </td>
                 </tr>
               </table>
@@ -228,6 +232,10 @@ export function buildHTML(
                         )
                         .join("")}
                     </table>
+                    ${content.aiInBusiness.personalNote ? `
+                    <div style="background-color: #faf9f7; border: 1px solid #e8e4df; padding: 16px 18px; margin: 18px 0 0 0; border-radius: 6px;">
+                      <p style="font-family: ${SANS}; font-size: 14px; color: ${DARK}; line-height: 1.65; margin: 0; white-space: pre-wrap;">${content.aiInBusiness.personalNote}</p>
+                    </div>` : ''}
                   </td>
                 </tr>
               </table>
@@ -320,7 +328,7 @@ export function buildHTML(
                       Babson College, 231 Forest Street, Babson Park, MA 02457
                     </p>
                     <p style="font-family: ${SANS}; font-size: 11px; color: #999; margin: 8px 0 0 0;">
-                      <a href="{{unsubscribe_url}}" target="_blank" style="color: #999; text-decoration: underline;">Unsubscribe</a>
+                      Got this forwarded? <a href="mailto:mabril1@babson.edu?subject=Subscribe to The AI Pulse" target="_blank" style="color: #999; text-decoration: underline;">Email to subscribe</a> · <a href="{{unsubscribe_url}}" target="_blank" style="color: #999; text-decoration: underline;">Unsubscribe</a>
                     </p>
                   </td>
                 </tr>

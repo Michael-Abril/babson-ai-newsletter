@@ -27,7 +27,12 @@ function getIssueNumber(date: Date): number {
   return weeksSinceLaunch + 1; // Issue 1 is week 0
 }
 
-export function buildEmail(content: NewsletterContent): {
+export interface ToolOverrides {
+  featuredToolName?: string;  // Name of tool to feature (e.g., "NotebookLM")
+  otherToolNames?: string[];  // Names of other tools to show (4 tools)
+}
+
+export function buildEmail(content: NewsletterContent, overrides?: ToolOverrides): {
   html: string;
   subject: string;
   subjectLine: string;
@@ -36,10 +41,30 @@ export function buildEmail(content: NewsletterContent): {
 } {
   const tools: Tool[] = JSON.parse(readFileSync(toolsPath, "utf-8"));
 
-  const weekNumber = getISOWeekNumber(new Date());
-  const featuredIndex = (weekNumber - 1) % tools.length;
-  const featuredTool = tools[featuredIndex];
-  const otherTools = tools.filter((_, i) => i !== featuredIndex).slice(0, 4);
+  let featuredTool: Tool;
+  let otherTools: Tool[];
+
+  if (overrides?.featuredToolName) {
+    // Use specified featured tool
+    featuredTool = tools.find(t => t.name === overrides.featuredToolName) || tools[0];
+
+    if (overrides.otherToolNames) {
+      // Use specified other tools
+      otherTools = overrides.otherToolNames
+        .map(name => tools.find(t => t.name === name))
+        .filter((t): t is Tool => t !== undefined)
+        .slice(0, 4);
+    } else {
+      // Default other tools excluding featured
+      otherTools = tools.filter(t => t.name !== overrides.featuredToolName).slice(0, 4);
+    }
+  } else {
+    // Default rotation behavior
+    const weekNumber = getISOWeekNumber(new Date());
+    const featuredIndex = (weekNumber - 1) % tools.length;
+    featuredTool = tools[featuredIndex];
+    otherTools = tools.filter((_, i) => i !== featuredIndex).slice(0, 4);
+  }
 
   const issueNumber = getIssueNumber(new Date());
   const issueDate = new Date().toLocaleDateString("en-US", {

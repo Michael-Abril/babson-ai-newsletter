@@ -73,10 +73,12 @@ export interface NewsletterContent {
     intro: string;
     steps: FrameworkStep[];
     bottomLine: string;
+    personalNote?: string; // Optional personal note from Mikey
   };
   aiInBusiness: {
     title: string;
     workflows: BusinessWorkflow[];
+    personalNote?: string; // Optional personal note from Mikey
   };
   quickHits: string[];
   nextWeek: string;
