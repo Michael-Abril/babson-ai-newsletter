@@ -1,14 +1,42 @@
 [
   {
+    "issueNumber": 3,
+    "date": "2026-03-16",
+    "subjectLine": "GPT-5.4 just changed the startup game",
+    "sentAt": "2026-03-16T21:45:00.000Z",
+    "qaScore": 88,
+    "usedTools": [
+      "Replit",
+      "Codeium",
+      "Canva Pro",
+      "Figma",
+      "Leonardo.ai"
+    ]
+  },
+  {
     "issueNumber": 2,
     "date": "2026-03-02",
     "subjectLine": "The free AI that won't satisfice on your midterms",
-    "sentAt": "2026-03-02T23:03:38.449Z"
+    "sentAt": "2026-03-02T23:03:38.449Z",
+    "usedTools": [
+      "NotebookLM",
+      "Perplexity Pro",
+      "Khanmigo",
+      "QuillBot",
+      "Grammarly Premium"
+    ]
   },
   {
     "issueNumber": 1,
     "date": "2026-02-23",
     "subjectLine": "Claude just got scary good (and it's free)",
-    "sentAt": "2026-02-24T01:04:37.235Z"
+    "sentAt": "2026-02-24T01:04:37.235Z",
+    "usedTools": [
+      "Claude",
+      "Google Gemini Pro",
+      "ChatGPT Plus",
+      "Cursor Pro",
+      "GitHub Copilot"
+    ]
   }
 ]

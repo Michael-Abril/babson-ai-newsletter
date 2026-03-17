@@ -26,59 +26,91 @@ const BANNED_WORDS = [
   "moreover", "hence", "thus", "therefore", "consequently", "subsequently"
 ];
 
+async function sleep(ms: number): Promise<void> {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 async function runAgent<T>(
   agentName: string,
   systemPrompt: string,
   userPrompt: string,
-  useWebSearch: boolean = false
+  useWebSearch: boolean = false,
+  maxRetries: number = 5
 ): Promise<AgentResult<T>> {
   console.log(`\nRunning ${agentName}...`);
-  
-  const tools: Anthropic.Tool[] = useWebSearch 
+
+  const tools: Anthropic.Tool[] = useWebSearch
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     ? [{ type: "web_search_20250305", name: "web_search", max_uses: 20 } as any]
     : [];
 
-  const response = await client.messages.create({
-    model: "claude-sonnet-4-20250514",
-    max_tokens: 16000,
-    system: systemPrompt,
-    tools,
-    messages: [{ role: "user", content: userPrompt }],
-  });
+  let lastError: Error | null = null;
 
-  const textBlocks = response.content.filter((block) => block.type === "text");
-  const textBlock = textBlocks[textBlocks.length - 1];
-  if (textBlock?.type !== "text") {
-    throw new Error(`${agentName}: No text response`);
-  }
+  for (let attempt = 1; attempt <= maxRetries; attempt++) {
+    try {
+      const response = await client.messages.create({
+        model: "claude-sonnet-4-20250514",
+        max_tokens: 16000,
+        system: systemPrompt,
+        tools,
+        messages: [{ role: "user", content: userPrompt }],
+      });
 
-  // Extract JSON from response
-  let jsonStr = textBlock.text.trim();
-  if (jsonStr.includes("```")) {
-    const fenced = jsonStr.match(/```(?:json)?\s*\n?([\s\S]*?)\n?\s*```/);
-    if (fenced) jsonStr = fenced[1].trim();
-  }
-  if (!jsonStr.startsWith("{") && !jsonStr.startsWith("[")) {
-    const start = jsonStr.indexOf("{") !== -1 ? jsonStr.indexOf("{") : jsonStr.indexOf("[");
-    const endBrace = jsonStr.lastIndexOf("}");
-    const endBracket = jsonStr.lastIndexOf("]");
-    const end = Math.max(endBrace, endBracket);
-    if (start !== -1 && end !== -1) {
-      jsonStr = jsonStr.slice(start, end + 1);
+      // Success - process response below
+      const textBlocks = response.content.filter((block) => block.type === "text");
+      const textBlock = textBlocks[textBlocks.length - 1];
+      if (textBlock?.type !== "text") {
+        throw new Error(`${agentName}: No text response`);
+      }
+
+      // Extract JSON from response
+      let jsonStr = textBlock.text.trim();
+      if (jsonStr.includes("```")) {
+        const fenced = jsonStr.match(/```(?:json)?\s*\n?([\s\S]*?)\n?\s*```/);
+        if (fenced) jsonStr = fenced[1].trim();
+      }
+      if (!jsonStr.startsWith("{") && !jsonStr.startsWith("[")) {
+        const start = jsonStr.indexOf("{") !== -1 ? jsonStr.indexOf("{") : jsonStr.indexOf("[");
+        const endBrace = jsonStr.lastIndexOf("}");
+        const endBracket = jsonStr.lastIndexOf("]");
+        const end = Math.max(endBrace, endBracket);
+        if (start !== -1 && end !== -1) {
+          jsonStr = jsonStr.slice(start, end + 1);
+        }
+      }
+
+      const parsed = JSON.parse(jsonStr);
+      console.log(`${agentName} complete`);
+
+      return {
+        agentName,
+        success: true,
+        data: parsed as T,
+        reasoning: textBlock.text.slice(0, 500),
+        timestamp: new Date().toISOString(),
+      };
+
+    } catch (error: unknown) {
+      lastError = error as Error;
+
+      // Check if it's a rate limit error
+      if (error && typeof error === 'object' && 'status' in error && (error as {status: number}).status === 429) {
+        const rateLimitError = error as { headers?: { 'retry-after'?: string } };
+        const retryAfter = rateLimitError.headers?.['retry-after'];
+        const waitTime = retryAfter ? parseInt(retryAfter, 10) * 1000 : 65000; // Default 65 seconds
+
+        console.log(`   Rate limited. Waiting ${Math.ceil(waitTime / 1000)} seconds before retry (${attempt}/${maxRetries})...`);
+        await sleep(waitTime);
+        continue;
+      }
+
+      // For other errors, throw immediately
+      throw error;
     }
   }
 
-  const parsed = JSON.parse(jsonStr);
-  console.log(`${agentName} complete`);
-  
-  return {
-    agentName,
-    success: true,
-    data: parsed as T,
-    reasoning: textBlock.text.slice(0, 500),
-    timestamp: new Date().toISOString(),
-  };
+  // If we exhausted all retries
+  throw lastError || new Error(`${agentName}: Max retries exceeded`);
 }
 
 // ============================================================================
@@ -204,7 +236,7 @@ Return a JSON object with this EXACT structure:
     "summary": "2-3 sentences. What happened and why it matters. Have an opinion.",
     "sourceUrl": "real URL from the story"
   },
-  "classConnection": "2-4 sentences connecting to entrepreneurship. Talk directly to reader.",
+  "classConnection": "2-4 sentences on how this helps Babson students build their startups. NO class/course references. Talk directly to reader about their real business challenges.",
   "threeThings": [
     {
       "headline": "punchy headline",
@@ -305,26 +337,33 @@ Return the EDITED JSON object with the same structure. Return ONLY the JSON.`
 async function babsonContextAgent(content: NewsletterContent): Promise<AgentResult<NewsletterContent>> {
   return runAgent<NewsletterContent>(
     "Babson Context Agent",
-    `You are the Babson Context Agent. You make the newsletter specifically relevant to Babson College entrepreneurs.
+    `You are the Babson Context Agent. You make the newsletter relevant to Babson College student entrepreneurs.
 
-Babson context you can reference:
-- FME (Foundations of Management and Entrepreneurship) - first-year startup experience
-- B-Lab and accelerator programs
-- Blank Center for Entrepreneurship
-- "Entrepreneurial Thought & Action" methodology
-- Real scenarios: pitching to investors, customer discovery, MVP building
-- Student startup culture and competitions
+IMPORTANT: DO NOT reference specific classes, courses, or academic programs like:
+- FME, Foundations of Management, or any course names
+- B-Lab, Blank Center, or specific campus programs
+- "Entrepreneurial Thought & Action" or academic methodologies
+- Class assignments or professors
 
-Your job is to enhance the "classConnection" sections and entrepreneur angles to feel SPECIFICALLY relevant to Babson students, not generic "entrepreneur" advice.`,
-    
-    `Enhance this newsletter with Babson-specific context:
+INSTEAD, focus on real startup scenarios that Babson students face:
+- Building their first startup or side project
+- Pitching to real investors or at competitions
+- Finding co-founders and early customers
+- Validating business ideas with limited budget
+- Balancing school with building a company
+- Networking with Babson alumni entrepreneurs
+
+The prompts should be practical tools ANY Babson student can use for their actual business or startup idea, not for coursework.`,
+
+    `Enhance this newsletter for Babson student entrepreneurs:
 
 ${JSON.stringify(content, null, 2)}
 
-Focus on:
-1. Making "classConnection" reference real Babson scenarios
-2. Ensuring "founderFramework" feels like advice for student startups
-3. Adding Babson entrepreneur context where natural
+CRITICAL RULES:
+1. REMOVE any references to FME, B-Lab, Blank Center, courses, or class assignments
+2. Make "classConnection" about real startup challenges students face
+3. Ensure all prompts are for actual business use, not academic projects
+4. Keep language casual and practical
 
 Keep the same JSON structure. Return ONLY the JSON.`
   );

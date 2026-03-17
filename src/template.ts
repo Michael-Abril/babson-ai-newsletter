@@ -322,13 +322,12 @@ export function buildHTML(
               <table role="presentation" cellpadding="0" cellspacing="0" width="100%">
                 <tr>
                   <td align="center">
-                    <p style="font-family: ${SANS}; font-size: 12px; color: ${TEXT_MID}; margin: 0;">The AI Pulse \u00b7 Babson College \u2013 AI for Entrepreneurs by Mikey Abril</p>
-                    <p style="font-family: ${SANS}; font-size: 11px; color: #999; margin: 8px 0 0 0; line-height: 1.6;">
-                      Researched with AI. Curated by humans.<br>
-                      Babson College, 231 Forest Street, Babson Park, MA 02457
-                    </p>
+                    <p style="font-family: ${SANS}; font-size: 12px; color: ${TEXT_MID}; margin: 0;">The AI Pulse · Babson College</p>
                     <p style="font-family: ${SANS}; font-size: 11px; color: #999; margin: 8px 0 0 0;">
-                      Got this forwarded? <a href="mailto:mabril1@babson.edu?subject=Subscribe to The AI Pulse" target="_blank" style="color: #999; text-decoration: underline;">Email to subscribe</a> · <a href="{{unsubscribe_url}}" target="_blank" style="color: #999; text-decoration: underline;">Unsubscribe</a>
+                      AI for Entrepreneurs by Mikey Abril
+                    </p>
+                    <p style="font-family: ${SANS}; font-size: 11px; color: #999; margin: 12px 0 0 0;">
+                      Got this forwarded? <a href="mailto:mabril1@babson.edu?subject=Subscribe%20to%20The%20AI%20Pulse" target="_blank" style="color: #666; text-decoration: underline;">Reply to subscribe</a>
                     </p>
                   </td>
                 </tr>

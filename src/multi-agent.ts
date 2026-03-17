@@ -6,6 +6,7 @@
  *   npm run multi-agent:send     - Generate and send to audience
  */
 
+import "dotenv/config";
 import { writeFileSync, mkdirSync, existsSync, readFileSync } from "fs";
 import { runMultiAgentPipeline } from "./agents/orchestrator.js";
 import { buildEmail } from "./build-email.js";
@@ -16,6 +17,7 @@ interface EditionEntry {
   date: string;
   subjectLine: string;
   qaScore: number;
+  usedTools: string[];
 }
 
 /**
@@ -85,7 +87,7 @@ async function main() {
     const { content, qaScore } = await runMultiAgentPipeline();
 
     // Build the email HTML
-    const { html, subjectLine, issueNumber, issueDate } = await buildEmail(content);
+    const { html, subjectLine, issueNumber, issueDate, usedTools } = await buildEmail(content);
 
     // Update editions index
     updateEditionsIndex({
@@ -93,6 +95,7 @@ async function main() {
       date: new Date().toISOString().split("T")[0],
       subjectLine: content.subjectLine,
       qaScore,
+      usedTools,
     });
     console.log(`Edition #${issueNumber} tracked`);
 
