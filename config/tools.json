@@ -1,5 +1,15 @@
 [
   {
+    "name": "Akash Network",
+    "value": "$100 free credits",
+    "duration": "Free credits on signup",
+    "description": "Decentralized cloud for AI. Deploy AI agents, run LLMs, host apps at 80% less than AWS. Perfect for student founders who need compute without the cloud bills.",
+    "claimSteps": "Sign up at akash.network/deploy. New users get $100 in free credits. No credit card required to start.",
+    "url": "https://akash.network",
+    "category": "infrastructure",
+    "weeklyTheme": "AI Agents & Automation"
+  },
+  {
     "name": "Claude",
     "value": "Free tier available",
     "duration": "Always free",
