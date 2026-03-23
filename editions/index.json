@@ -1,5 +1,20 @@
 [
   {
+    "issueNumber": 4,
+    "date": "2026-03-23",
+    "subjectLine": "Claude just invaded your Discord 🤯",
+    "sentAt": "2026-03-23T21:45:00.000Z",
+    "qaScore": 82,
+    "weekTopic": "AI Agents Go Social",
+    "usedTools": [
+      "Ideogram",
+      "Bing Image Creator",
+      "Gamma",
+      "Beautiful.ai",
+      "Playground AI"
+    ]
+  },
+  {
     "issueNumber": 3,
     "date": "2026-03-16",
     "subjectLine": "GPT-5.4 just changed the startup game",

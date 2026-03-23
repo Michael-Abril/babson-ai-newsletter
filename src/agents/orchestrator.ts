@@ -11,8 +11,63 @@
  */
 
 import Anthropic from "@anthropic-ai/sdk";
+import { readFileSync, existsSync } from "fs";
+import { fileURLToPath } from "url";
+import { dirname, join } from "path";
 import type { NewsletterContent } from "../types.js";
 import type { ResearchedStory, CuratedStory, QAScore, PipelineState, AgentResult } from "./types.js";
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
+
+interface WeeklyTheme {
+  week: number;
+  theme: string;
+  title: string;
+  subtitle: string;
+  workflows: { title: string; description: string; prompt: string }[];
+}
+
+interface WeeklyThemesConfig {
+  themes: WeeklyTheme[];
+}
+
+interface EditionEntry {
+  issueNumber: number;
+  date: string;
+  subjectLine: string;
+}
+
+function getNextIssueNumber(): number {
+  const indexPath = join(__dirname, "..", "..", "editions", "index.json");
+  if (!existsSync(indexPath)) return 1;
+  try {
+    const editions: EditionEntry[] = JSON.parse(readFileSync(indexPath, "utf-8"));
+    if (editions.length === 0) return 1;
+    const maxIssue = Math.max(...editions.map(e => e.issueNumber));
+    return maxIssue + 1;
+  } catch {
+    return 1;
+  }
+}
+
+function getCurrentTheme(): WeeklyTheme | null {
+  const themesPath = join(__dirname, "..", "..", "config", "weekly-themes.json");
+  if (!existsSync(themesPath)) return null;
+  try {
+    const config: WeeklyThemesConfig = JSON.parse(readFileSync(themesPath, "utf-8"));
+    const issueNumber = getNextIssueNumber();
+    // Rotate through 12 weeks: Issue 1 = Week 1, Issue 13 = Week 1, etc.
+    const weekIndex = ((issueNumber - 1) % 12);
+    return config.themes[weekIndex] || null;
+  } catch {
+    return null;
+  }
+}
+
+// Validate API key at module load
+if (!process.env.ANTHROPIC_API_KEY) {
+  throw new Error("ANTHROPIC_API_KEY environment variable is required. Set it in .env or GitHub Secrets.");
+}
 
 const client = new Anthropic();
 
@@ -29,6 +84,9 @@ const BANNED_WORDS = [
 async function sleep(ms: number): Promise<void> {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
+
+// Add delay between agent calls to avoid rate limiting
+const AGENT_DELAY_MS = 3000; // 3 seconds between agents
 
 async function runAgent<T>(
   agentName: string,
@@ -198,10 +256,21 @@ Return ONLY the JSON array.`
 // ============================================================================
 async function writerAgent(stories: CuratedStory[]): Promise<AgentResult<NewsletterContent>> {
   const today = new Date().toISOString().split("T")[0];
+  const theme = getCurrentTheme();
+  const issueNumber = getNextIssueNumber();
+
+  const themeContext = theme ? `
+THIS WEEK'S THEME: "${theme.theme}" - ${theme.title}
+${theme.subtitle}
+
+Use this theme to guide the "AI in Your Business" section. The workflows should relate to ${theme.theme}.
+Here are example workflow ideas for this theme (adapt based on the news stories):
+${theme.workflows.map((w, i) => `${i + 1}. ${w.title}: ${w.description}`).join('\n')}
+` : '';
 
   return runAgent<NewsletterContent>(
     "Writer Agent",
-    `You are Mikey Abril writing "The AI Pulse" newsletter. You're a college student at Babson who genuinely knows AI better than most people in the industry.
+    `You are Mikey Abril writing "The AI Pulse" newsletter Issue #${issueNumber}. You're a college student at Babson who genuinely knows AI better than most people in the industry.
 
 YOUR VOICE:
 - Casual and direct, like explaining something to a friend over coffee
@@ -218,12 +287,12 @@ CRITICAL: THE PROMPTS ARE THE MOST IMPORTANT PART
 - Prompts should be specific and actionable, not generic
 - Use placeholders like [YOUR IDEA], [COMPANY NAME], [COMPETITOR]
 - Students should be able to paste the prompt directly into Claude/ChatGPT and get useful output
-
+${themeContext}
 NEVER USE these words: meticulous, strategically, leverage, landscape, paradigm, revolutionize, cutting-edge, game-changing, harness, delve, robust, synergy, ecosystem, transformative, unprecedented, navigate
 
 NEVER USE em dashes. Use commas, periods, or colons instead.`,
-    
-    `Today is ${today}. Write a complete newsletter using these curated stories:
+
+    `Today is ${today}. Write Issue #${issueNumber} of the newsletter using these curated stories:
 
 ${JSON.stringify(stories, null, 2)}
 
@@ -339,31 +408,35 @@ async function babsonContextAgent(content: NewsletterContent): Promise<AgentResu
     "Babson Context Agent",
     `You are the Babson Context Agent. You make the newsletter relevant to Babson College student entrepreneurs.
 
-IMPORTANT: DO NOT reference specific classes, courses, or academic programs like:
-- FME, Foundations of Management, or any course names
-- B-Lab, Blank Center, or specific campus programs
-- "Entrepreneurial Thought & Action" or academic methodologies
-- Class assignments or professors
+Your job is to add Babson-specific flavor while keeping it authentic:
 
-INSTEAD, focus on real startup scenarios that Babson students face:
-- Building their first startup or side project
-- Pitching to real investors or at competitions
-- Finding co-founders and early customers
-- Validating business ideas with limited budget
-- Balancing school with building a company
-- Networking with Babson alumni entrepreneurs
+GOOD references (use these naturally):
+- Babson's entrepreneurship culture and community
+- Pitch competitions (Babson Entrepreneurship Forum, Rocket Pitch)
+- Building startups while in school
+- The Babson alumni network and entrepreneur connections
+- Boston/Wellesley startup scene access
+- Summer Launch and Blank Center resources (but briefly, not academic)
+- Finding co-founders among classmates
+- Testing ideas on campus before scaling
 
-The prompts should be practical tools ANY Babson student can use for their actual business or startup idea, not for coursework.`,
+AVOID (sounds too academic/corporate):
+- Specific course names like "FME" or "Foundations of Management"
+- Academic methodologies or frameworks from class
+- Class assignments or professor names
+- Formal program descriptions
+
+The tone should be: "As a Babson student, here's why this matters for YOUR startup" - not "In your entrepreneurship class..."`,
 
     `Enhance this newsletter for Babson student entrepreneurs:
 
 ${JSON.stringify(content, null, 2)}
 
-CRITICAL RULES:
-1. REMOVE any references to FME, B-Lab, Blank Center, courses, or class assignments
-2. Make "classConnection" about real startup challenges students face
-3. Ensure all prompts are for actual business use, not academic projects
-4. Keep language casual and practical
+Make it feel like it's written BY a Babson student FOR Babson students:
+1. Add 1-2 natural Babson references (pitch competitions, startup culture, alumni network, campus resources)
+2. Make "classConnection" about real startup challenges students face at Babson
+3. Keep prompts practical for actual businesses, not coursework
+4. Maintain casual, authentic voice
 
 Keep the same JSON structure. Return ONLY the JSON.`
   );
@@ -378,28 +451,28 @@ async function qaAgent(content: NewsletterContent): Promise<AgentResult<QAScore>
     `You are the QA Agent. You're the final quality gate before the newsletter sends.
 
 Score the newsletter 1-100 on:
-1. Authenticity: Does it sound like a real college student wrote this? (no AI tells)
-2. Actionability: Can readers DO something specific this week?
-3. Engagement: Would you forward this to a friend?
-4. Babson Relevance: Is this tailored to Babson entrepreneurs specifically?
+1. Authenticity: Does it sound like a real college student wrote this? (no AI tells, uses contractions, has opinions)
+2. Actionability: Can readers DO something specific this week? Are prompts copy-paste ready?
+3. Engagement: Would you forward this to a friend? Is it interesting?
+4. Babson Relevance: Does it feel written for Babson students? (mentions startup culture, pitch competitions, or building while in school - NOT specific class names)
 
 Calculate overall = (authenticity + actionability + engagement + babsonRelevance) / 4
 
-If overall >= 85: approved = true
-If overall < 85: approved = false, list specific fixes needed
+If overall >= 80: approved = true
+If overall < 80: approved = false, list specific fixes needed
 
-Be STRICT. The goal is world-class quality.`,
-    
+Be fair but thorough. An 80+ score means it's ready to send.`,
+
     `Review this newsletter for quality:
 
 ${JSON.stringify(content, null, 2)}
 
 Check for:
-- Any em dashes remaining (instant fail)
+- Any em dashes remaining (deduct points)
 - Any banned AI words: ${BANNED_WORDS.slice(0, 10).join(", ")}...
-- Lack of contractions
-- Generic entrepreneur advice (should be Babson-specific)
-- Flat/boring voice without opinions
+- Missing contractions (should use don't, can't, it's, etc.)
+- Generic advice vs Babson-specific (should feel like it's for Babson students, not generic startup advice)
+- Flat voice (should have opinions like "this is huge" or "honestly overrated")
 
 Return a JSON object:
 {
@@ -408,8 +481,8 @@ Return a JSON object:
   "engagement": 1-100,
   "babsonRelevance": 1-100,
   "overall": average of above,
-  "approved": true if overall >= 85,
-  "fixes": ["specific fix 1", "fix 2"] if not approved
+  "approved": true if overall >= 80,
+  "fixes": ["specific fix 1", "fix 2"] if not approved, empty array if approved
 }
 
 Return ONLY the JSON.`
@@ -429,6 +502,14 @@ export async function runMultiAgentPipeline(maxRetries: number = 2): Promise<Pip
   console.log("THE AI PULSE - MULTI-AGENT PIPELINE");
   console.log("=".repeat(60));
 
+  // Show theme info
+  const issueNumber = getNextIssueNumber();
+  const theme = getCurrentTheme();
+  console.log(`\nGenerating Issue #${issueNumber}`);
+  if (theme) {
+    console.log(`Theme: ${theme.theme} - "${theme.title}"`);
+  }
+
   const state: PipelineState = {
     currentStep: 0,
     totalSteps: 6,
@@ -442,12 +523,17 @@ export async function runMultiAgentPipeline(maxRetries: number = 2): Promise<Pip
   state.researchResults = await researchAgent();
   console.log(`   Found ${state.researchResults.data.length} stories`);
 
+  // Delay to avoid rate limiting
+  await sleep(AGENT_DELAY_MS);
+
   // Step 2: Curation
   state.currentStep = 2;
   state.stepName = "Curation";
   console.log(`\nStep ${state.currentStep}/${state.totalSteps}: ${state.stepName}`);
   state.curationResults = await curationAgent(state.researchResults.data);
   console.log(`   Selected top ${state.curationResults.data.length} stories`);
+
+  await sleep(AGENT_DELAY_MS);
 
   // Step 3: Writing
   state.currentStep = 3;
@@ -456,6 +542,8 @@ export async function runMultiAgentPipeline(maxRetries: number = 2): Promise<Pip
   const draftResult = await writerAgent(state.curationResults.data);
   let content = draftResult.data;
 
+  await sleep(AGENT_DELAY_MS);
+
   // Step 4: Editing
   state.currentStep = 4;
   state.stepName = "Editing";
@@ -463,12 +551,16 @@ export async function runMultiAgentPipeline(maxRetries: number = 2): Promise<Pip
   const editResult = await editorAgent(content);
   content = editResult.data;
 
+  await sleep(AGENT_DELAY_MS);
+
   // Step 5: Babson Context
   state.currentStep = 5;
   state.stepName = "Babson Context";
   console.log(`\nStep ${state.currentStep}/${state.totalSteps}: ${state.stepName}`);
   const contextResult = await babsonContextAgent(content);
   content = contextResult.data;
+
+  await sleep(AGENT_DELAY_MS);
 
   // Step 6: QA (with retry loop)
   state.currentStep = 6;
@@ -499,10 +591,17 @@ export async function runMultiAgentPipeline(maxRetries: number = 2): Promise<Pip
     if (qaResult.data.fixes && qaResult.data.fixes.length > 0) {
       console.log(`\nFixes needed: ${qaResult.data.fixes.join(", ")}`);
       console.log("   Running editor again...");
+
+      // Add delay before retry to avoid rate limits
+      await sleep(AGENT_DELAY_MS);
+
       const reEditResult = await editorAgent(content);
       content = reEditResult.data;
+
+      // Add delay before next QA attempt
+      await sleep(AGENT_DELAY_MS);
     }
-    
+
     attempts++;
   }
 

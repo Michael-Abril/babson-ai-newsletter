@@ -1,7 +1,17 @@
-# Issue #4 Plan - AI Agents & Automation
+# Issue #4 - SENT ✅
 
-**Target Date:** Week of March 23, 2026
-**Theme:** AI Agents & Automation
+**Sent:** March 23, 2026
+**Theme:** AI Agents Go Social
+**Subject:** Claude just invaded your Discord 🤯
+
+Issue #4 featured Claude Code Channels (Discord/Telegram integration) and was successfully sent to the full audience.
+
+---
+
+# Issue #5 Plan - AI Agents & Automation with Akash
+
+**Target Date:** Week of March 30, 2026
+**Theme:** AI Agents & Automation (Week 12 in rotation: "Automation & Scale")
 
 ## Special Feature: Akash Network Demo
 
@@ -21,25 +31,29 @@ Mikey is a **Student Ambassador for Akash Network** - this issue will include a 
 
 ### Big Story Options
 - AI agents that run entire businesses
-- Multi-agent systems (like GPT-5.4's agent teams)
+- Multi-agent systems and orchestration
 - Autonomous AI workflows
+- DePin/decentralized compute advantages
 
 ### Founder's Edge Framework
 - "Deploy your first AI agent this weekend using Akash"
 - Step-by-step with Akash + free credits
-- Copy-paste deployment configs
+- Copy-paste deployment configs (SDL files)
 
 ### AI in Your Business Workflows
 - Customer support agents
 - Sales outreach automation
 - Content generation pipelines
+- Background task automation
 
 ## Tools to Feature
-- Akash Network (FEATURED - $100 free credits)
-- n8n (free automation)
-- Other agent/automation tools not used in Issues 1-3
+- **Akash Network** (FEATURED - $100 free credits)
+- n8n (free self-hosted automation)
+- Make/Zapier alternatives
+- Other automation tools not used in Issues 1-4
 
-## Notes
-- Make sure Akash signup link is prominent
-- Include Mikey's ambassador referral if applicable
-- Show real cost savings vs traditional cloud
+## Manual Items for Mikey
+- [ ] Akash ambassador signup link
+- [ ] Specific SDL deployment examples
+- [ ] Cost comparison vs AWS/GCP
+- [ ] Personal testimonial about using Akash
