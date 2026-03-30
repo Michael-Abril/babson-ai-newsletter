@@ -266,6 +266,22 @@ export function buildHTML(
                 </tr>
               </table>
 
+              ${content.founderSpotlight?.enabled ? `
+              <!-- FOUNDER SPOTLIGHT / EVENT -->
+              <table role="presentation" cellpadding="0" cellspacing="0" width="100%">
+                <tr><td style="padding: 28px 32px 0 32px;"><div style="height: 1px; background-color: ${RULE};"></div></td></tr>
+              </table>
+              <table role="presentation" cellpadding="0" cellspacing="0" width="100%">
+                <tr>
+                  <td style="padding: 24px 32px 0 32px;">
+                    <p style="font-family: ${SANS}; font-size: 11px; font-weight: 600; letter-spacing: 1.2px; text-transform: uppercase; color: ${TEXT_MID}; margin: 0 0 12px 0;">Don't Miss</p>
+                    <p style="font-family: ${FONT}; color: ${DARK}; font-size: 17px; font-weight: 700; margin: 0 0 8px 0; line-height: 1.35;">${content.founderSpotlight.startupName}</p>
+                    <p style="font-family: ${SANS}; color: ${TEXT}; font-size: 14px; line-height: 1.6; margin: 0 0 14px 0;">${content.founderSpotlight.oneLinePitch}</p>
+                    <a href="${content.founderSpotlight.ctaUrl}" target="_blank" style="display: inline-block; font-family: ${SANS}; background-color: ${GREEN}; color: ${WHITE}; font-size: 13px; font-weight: 600; padding: 10px 22px; border-radius: 4px; text-decoration: none;">${content.founderSpotlight.ctaText}</a>
+                  </td>
+                </tr>
+              </table>` : ""}
+
               <!-- NEXT WEEK -->
               <table role="presentation" cellpadding="0" cellspacing="0" width="100%">
                 <tr>
@@ -296,22 +312,6 @@ export function buildHTML(
                   </td>
                 </tr>
               </table>
-
-              ${content.founderSpotlight?.enabled ? `
-              <!-- FOUNDER SPOTLIGHT -->
-              <table role="presentation" cellpadding="0" cellspacing="0" width="100%">
-                <tr><td style="padding: 0 32px;"><div style="height: 1px; background-color: ${RULE};"></div></td></tr>
-              </table>
-              <table role="presentation" cellpadding="0" cellspacing="0" width="100%">
-                <tr>
-                  <td style="padding: 24px 32px 32px 32px;">
-                    <p style="font-family: ${SANS}; font-size: 11px; font-weight: 600; letter-spacing: 1.2px; text-transform: uppercase; color: ${TEXT_MID}; margin: 0 0 12px 0;">Founder Spotlight</p>
-                    <p style="font-family: ${FONT}; color: ${DARK}; font-size: 17px; font-weight: 700; margin: 0 0 8px 0; line-height: 1.35;">${content.founderSpotlight.startupName}</p>
-                    <p style="font-family: ${SANS}; color: ${TEXT}; font-size: 14px; line-height: 1.6; margin: 0 0 14px 0;">${content.founderSpotlight.oneLinePitch}</p>
-                    <a href="${content.founderSpotlight.ctaUrl}" target="_blank" style="display: inline-block; font-family: ${SANS}; background-color: ${GREEN}; color: ${WHITE}; font-size: 13px; font-weight: 600; padding: 10px 22px; border-radius: 4px; text-decoration: none;">${content.founderSpotlight.ctaText}</a>
-                  </td>
-                </tr>
-              </table>` : ""}
 
             </td>
           </tr>

@@ -1,0 +1,98 @@
+{
+  "subjectLine": "Sell inside ChatGPT now + Claude controls PCs",
+  "weekTopic": "Pitch Perfect",
+  "bigStory": {
+    "headline": "You can now sell products directly inside ChatGPT",
+    "summary": "Shopify just dropped Agentic Storefronts. Merchants can sell directly inside ChatGPT, Gemini, and Microsoft Copilot. No extra fees. Your customers are already chatting with AI, so why not sell them stuff while they're there? This is huge for reach.",
+    "sourceUrl": "https://www.theaimarketers.ai/news032626/"
+  },
+  "classConnection": "Remember trying to get traffic to your startup's website after Rocket Pitch? Your customers aren't browsing landing pages anymore. They're asking ChatGPT for product recommendations. Now you can actually be there when they're ready to buy. This fixes the biggest problem we all face: getting discovered without burning through your ad budget. Perfect timing since everyone's launching their Spring ventures.",
+  "threeThings": [
+    {
+      "headline": "AWS makes serverless development stupid easy",
+      "summary": "New Agent Plugin lets AI coding assistants build, deploy, and manage serverless apps for you.",
+      "takeaway": "Start building your MVP with AI help today instead of learning AWS from scratch",
+      "sourceUrl": "https://aws.amazon.com/about-aws/whats-new/2026/03/agent-plugin-aws-serverless/"
+    },
+    {
+      "headline": "Google's cheapest AI model yet",
+      "summary": "Gemini 3.1 Flash-Lite costs just $0.25 per million tokens and runs 2.5x faster than before.",
+      "takeaway": "Switch to this model if you're burning cash on AI API calls for your startup",
+      "sourceUrl": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-flash-lite/"
+    },
+    {
+      "headline": "Claude can now control your entire computer",
+      "summary": "Point, click, scroll through any app. No integrations needed. You can assign tasks from your phone.",
+      "takeaway": "Automate your boring business tasks like data entry and social media posting",
+      "sourceUrl": "https://www.theaimarketers.ai/news032626/"
+    }
+  ],
+  "founderFramework": {
+    "title": "Nail your investor pitch in 3 hours",
+    "intro": "Most student pitches fail because they don't tell a story investors care about. Whether you're prepping for the Babson Entrepreneurship Forum, Rocket Pitch, or meeting Boston VCs, here's how to build a deck that gets meetings.",
+    "steps": [
+      {
+        "title": "Write your core narrative",
+        "description": "Start with the story that connects problem to solution to market opportunity.",
+        "tool": "Claude",
+        "toolUrl": "https://claude.ai",
+        "prompt": "I'm pitching my startup [STARTUP NAME] which [ONE SENTENCE DESCRIPTION]. Help me craft a compelling narrative for investors. My target market is [TARGET MARKET], the main problem is [PROBLEM], and my solution is [SOLUTION]. Write a 2-minute pitch story that follows this structure: Hook (surprising stat/story) → Problem (pain point) → Solution (your product) → Market size → Traction → Ask. Make it conversational and avoid buzzwords."
+      },
+      {
+        "title": "Build your financial projections",
+        "description": "Create realistic revenue forecasts that don't make investors roll their eyes.",
+        "tool": "Claude",
+        "toolUrl": "https://claude.ai",
+        "prompt": "Help me build 3-year financial projections for [STARTUP NAME]. My business model: [DESCRIBE REVENUE MODEL]. Current metrics: [CURRENT REVENUE/USERS/GROWTH]. Comparable companies: [2-3 SIMILAR COMPANIES]. Create month-by-month projections for Year 1 and quarterly for Years 2-3. Include: Revenue, Customer acquisition cost, Customer count, Monthly recurring revenue (if applicable), Key assumptions. Make it realistic for a [STAGE] startup and explain your reasoning."
+      },
+      {
+        "title": "Practice with brutal feedback",
+        "description": "Get ripped apart by AI before investors do it in person.",
+        "tool": "Claude",
+        "toolUrl": "https://claude.ai",
+        "prompt": "I'm going to pitch my startup to you. You're a tough Series A investor who's seen 1000 pitches. Here's my pitch: [PASTE YOUR FULL PITCH]. Now tear it apart. What are the 3 biggest weaknesses? What questions will investors ask that I can't answer? What assumptions am I making that seem unrealistic? What would make you not invest? Be brutally honest and specific."
+      }
+    ],
+    "bottomLine": "Saves 20+ hours of pitch iteration and gets you investor-ready in one afternoon."
+  },
+  "aiInBusiness": {
+    "title": "Pitching & Fundraising Workflows",
+    "workflows": [
+      {
+        "title": "Investor Research in Minutes",
+        "description": "Know exactly what each investor cares about before you email them. Perfect for connecting with Babson's alumni network or Boston VCs.",
+        "tool": "Perplexity",
+        "toolUrl": "https://perplexity.ai",
+        "prompt": "Research [INVESTOR NAME] at [VC FIRM]. I need to know: Recent investments in my space ([YOUR INDUSTRY]), their typical check size and stage, what they've said about [RELEVANT TREND/TECH], their background, and any portfolio companies similar to [YOUR STARTUP]. Find their recent interviews, tweets, or blog posts. Give me 3 specific conversation starters I could use when pitching them."
+      },
+      {
+        "title": "Competitive Analysis That Impresses",
+        "description": "Build a competitive view that shows you actually understand your market.",
+        "tool": "Claude",
+        "toolUrl": "https://claude.ai",
+        "prompt": "Create a full competitive analysis for [YOUR STARTUP] in the [YOUR MARKET] space. Compare these competitors: [LIST 5-7 COMPETITORS]. For each, analyze: Business model, pricing, target customer, key features, funding raised, strengths/weaknesses, market positioning. Then create a 2x2 positioning map showing where we fit. Finally, explain our differentiation and why we'll win. Make this investor-ready."
+      },
+      {
+        "title": "Due Diligence Data Room Prep",
+        "description": "Get organized before investors start asking for documents you don't have.",
+        "tool": "ChatGPT",
+        "toolUrl": "https://chatgpt.com",
+        "prompt": "I'm raising [FUNDING STAGE] for my [INDUSTRY] startup [COMPANY NAME]. Create a complete due diligence checklist organized by category: Legal documents, Financial records, Product/Tech, Team, Customers, IP, etc. For each document, explain why investors want it and flag any that are critical vs nice-to-have. Also suggest 3 tools for organizing our data room and timeline for prep."
+      }
+    ]
+  },
+  "quickHits": [
+    "OpenAI: Codex Security agent flagged 11,000+ critical code flaws in first 30 days of testing",
+    "Meta: Launched Meta Small Business program targeting 250M+ businesses on their platforms",
+    "Microsoft: Copilot Cowork lets AI agents read, analyze, and manipulate files on your computer",
+    "Akash: $100 free credits for decentralized AI compute. New agents.akash.network for autonomous workflows"
+  ],
+  "nextWeek": "We're diving deep into the AI tools every student entrepreneur should be using in 2026. Plus, the one AI trend that's about to change everything for campus startups.",
+  "founderSpotlight": {
+    "enabled": true,
+    "startupName": "Blank School Venture Showcase - This Thursday, April 3rd",
+    "oneLinePitch": "Come support your fellow Babson founders! I'll be there showcasing Varity. Free event, great networking.",
+    "ctaText": "RSVP Free",
+    "ctaUrl": "https://www.babson.edu/blank-school-for-entrepreneurial-leadership/events/blank-school-venture-showcase/"
+  }
+}
