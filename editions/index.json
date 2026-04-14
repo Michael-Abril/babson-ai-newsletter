@@ -1,5 +1,19 @@
 [
   {
+    "issueNumber": 6,
+    "date": "2026-04-14",
+    "subjectLine": "AI can now buy stuff for you",
+    "qaScore": 90,
+    "weekTopic": "Sales & Outreach",
+    "usedTools": [
+      "Akash Network",
+      "HubSpot CRM",
+      "Jasper",
+      "Copy.ai",
+      "Mailchimp"
+    ]
+  },
+  {
     "issueNumber": 5,
     "date": "2026-03-30",
     "subjectLine": "Sell inside ChatGPT now + Claude controls PCs",

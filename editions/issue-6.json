@@ -1,0 +1,92 @@
+{
+  "subjectLine": "AI can now buy stuff for you 🛒",
+  "weekTopic": "AI Does Your Shopping",
+  "bigStory": {
+    "headline": "Visa just let AI agents shop for you",
+    "summary": "This is wild: Visa launched a system that lets AI browse stores, compare prices, and actually buy things on your behalf. You tell it what you want, it handles the rest. No more endless scrolling or price comparisons. The AI does the annoying parts and you just approve the final purchase. This changes everything for busy founders who hate wasting time shopping for supplies, software, or literally anything.",
+    "sourceUrl": "https://www.marketingprofs.com/opinions/2026/54530/ai-update-april-10-2026-ai-news-and-views-from-the-past-week"
+  },
+  "classConnection": "Think about all the time you waste comparing prices for startup supplies, hunting for the best software deals, or just buying basics. Now imagine telling AI 'find me the cheapest business cards' and it just... does it. For student founders juggling classes and a startup, this is time back in your pocket. Build your pitch deck while AI handles the shopping.",
+  "threeThings": [
+    {
+      "headline": "Claude can now control your computer (no joke)",
+      "summary": "Anthropic rolled out computer use for Pro users. Claude literally clicks around your screen, opens files, runs code.",
+      "takeaway": "Get Claude Pro ($20/month) and automate all that repetitive stuff you're doing manually",
+      "sourceUrl": "https://releasebot.io/updates/anthropic/claude"
+    },
+    {
+      "headline": "Gemini can now read your entire semester at once",
+      "summary": "Google's Gemini 3.1 just got a 2-million word limit. Upload every lecture note, textbook chapter, and PDF from your semester, then ask it anything.",
+      "takeaway": "Dump all your course materials into Gemini and use it as your personal tutor (free for students)",
+      "sourceUrl": "https://www.humai.blog/ai-news-trends-april-2026-complete-monthly-digest/"
+    },
+    {
+      "headline": "Perplexity hit $450M ARR with AI agents",
+      "summary": "They pivoted from search to agents that actually execute tasks. Their tax agent feature is killing it.",
+      "takeaway": "Pick a specific profession or task and build an AI agent for it: there's clearly massive demand",
+      "sourceUrl": "https://www.theaimarketers.ai/news041026/"
+    }
+  ],
+  "founderFramework": {
+    "title": "Research any competitor in 10 minutes",
+    "intro": "You need to know your competition inside and out, but who has time to dig through hundreds of pages when you're prepping for BEF or testing ideas on campus? Let AI do the heavy lifting.",
+    "steps": [
+      {
+        "title": "Upload everything you can find",
+        "description": "Grab their website, annual reports, press releases, product docs. Throw it all into NotebookLM (it's free and now built into Gemini).",
+        "tool": "Google NotebookLM",
+        "toolUrl": "https://gemini.google.com",
+        "prompt": "Analyze these documents about [COMPETITOR NAME] and create a comprehensive competitive analysis covering: 1) Their business model and revenue streams 2) Key strengths and weaknesses 3) Pricing strategy 4) Target customers 5) Recent moves 6) Potential weaknesses my startup could exploit. Format as an executive summary with specific data points and actionable insights."
+      },
+      {
+        "title": "Find the gaps",
+        "description": "Ask AI to identify what they're NOT doing: that's where your opportunity lives.",
+        "tool": "Claude",
+        "toolUrl": "https://claude.ai",
+        "prompt": "Based on this competitive research, identify 5 specific gaps or unmet needs in [COMPETITOR NAME]'s offering that a startup could address. For each gap, explain: 1) Why they haven't filled it yet 2) What customer pain point it represents 3) How difficult it would be for them to address 4) The potential market size for solving this gap. Rank by opportunity size."
+      },
+      {
+        "title": "Build your differentiation strategy",
+        "description": "Turn those gaps into your competitive advantage and positioning strategy.",
+        "tool": "Claude",
+        "toolUrl": "https://claude.ai",
+        "prompt": "Create a differentiation strategy for my startup [YOUR COMPANY] competing against [COMPETITOR NAME]. Based on the gaps identified, develop: 1) A unique value proposition that directly addresses their weaknesses 2) Key messaging points that highlight our advantages 3) Specific features or services we should prioritize 4) A go-to-market strategy that exploits their blind spots. Make it specific and actionable."
+      }
+    ],
+    "bottomLine": "Save 20+ hours of research and get insights most founders miss completely."
+  },
+  "aiInBusiness": {
+    "title": "Sales & Outreach: Fill Your Pipeline",
+    "workflows": [
+      {
+        "title": "Cold emails that actually get replies",
+        "description": "Stop sending generic pitches that scream 'mass email'. AI has analyzed thousands of successful cold emails and knows exactly what works.",
+        "tool": "Claude",
+        "toolUrl": "https://claude.ai",
+        "prompt": "Write a cold email for [YOUR COMPANY] reaching out to [TARGET ROLE] at [COMPANY TYPE] companies. The email should: 1) Reference something specific about their company or industry 2) Lead with a relevant insight or stat they'd care about 3) Make one clear, valuable offer 4) Include a soft CTA that's easy to say yes to 5) Be under 100 words. Make it sound human, not salesy. Include 3 different subject line options."
+      },
+      {
+        "title": "LinkedIn outreach without being annoying",
+        "description": "Everyone's tired of 'I'd love to connect and explore synergies' messages. Stand out by actually adding value from the first touch.",
+        "tool": "Claude",
+        "toolUrl": "https://claude.ai",
+        "prompt": "Create a LinkedIn connection request and follow-up sequence for [YOUR COMPANY] targeting [TARGET ROLE]. The sequence should: 1) Initial connection request (under 200 characters) that references their recent post/achievement 2) First follow-up message that shares a relevant resource or insight 3) Second follow-up with a specific, low-commitment ask 4) Third follow-up if still no response. Make each message valuable on its own, not just asking for something."
+      },
+      {
+        "title": "Follow-up sequences that close deals",
+        "description": "Most deals happen after the 5th touchpoint, but most founders give up after 2. AI never forgets to follow up and knows exactly what to say.",
+        "tool": "Claude",
+        "toolUrl": "https://claude.ai",
+        "prompt": "Create a 6-email follow-up sequence for prospects who showed initial interest in [YOUR PRODUCT/SERVICE] but went quiet. Each email should: 1) Have a different angle/reason for following up 2) Provide new value (case study, insight, resource) 3) Address a different potential objection 4) Include social proof relevant to their situation 5) End with a clear, specific next step. Space them 3, 7, 14, 21, and 30 days apart. Include subject lines for each."
+      }
+    ],
+    "personalNote": "Quick plug: Want AI news before everyone else? Here's my daily Twitter/X stack:\n\n@AnthropicAI: Claude updates straight from the source\n@OpenAI: GPT announcements and research\n@sama: Sam Altman's unfiltered takes\n@karpathy: Andrej Karpathy, former Tesla AI director\n@emollick: Ethan Mollick, Wharton prof who tests everything\n\nFollow these five and you'll know about AI news before most newsletters can write about it. Plus, our alumni network is always sharing the latest tools they're using in their startups."
+  },
+  "quickHits": [
+    "OpenAI: GPT-5 training runs are getting expensive (like, really expensive)",
+    "Meta: New AI video generator makes TikToks from text prompts",
+    "Microsoft: Copilot can now write and deploy code to production",
+    "Runway: Gen-3 video model can now do consistent characters"
+  ],
+  "nextWeek": "Next week we're diving into AI-powered market research: how to validate ideas and find customers without leaving campus. Plus, some wild new tools that just dropped that could give you an edge in your next pitch competition."
+}
